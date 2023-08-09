@@ -1,0 +1,48 @@
+.checkbox-wrapper-18 .round {
+    position: relative;
+    display: flex;
+}
+
+.checkbox-wrapper-18 .round label {
+    background-color: $btn-neutral-clr;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    width: 28px;
+    display: block;
+}
+
+.checkbox-wrapper-18 .round label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 8px;
+    opacity: 0;
+    position: absolute;
+    top: 9px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"] {
+    visibility: hidden;
+    display: none;
+    opacity: 0;
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"]:checked+label {
+    background-color: $btn-primary-clr;
+    border-color: $btn-primary-clr;
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"]:hover+label {
+    background-color: hsl(159deg, 86, 55, 0.5);
+    border-color: hsl(159deg, 86, 55, 0.5);
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"]:checked+label:after {
+    opacity: 1;
+}

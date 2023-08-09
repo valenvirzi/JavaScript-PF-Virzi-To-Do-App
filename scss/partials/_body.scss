@@ -1,0 +1,250 @@
+.body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $bg-primary-clr;
+
+    .header {
+        height: 15dvh;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0.5rem;
+        box-shadow: 0px -3px 10px hsl(0deg, 0, 0, 0.25);
+        background-color: $primary-clr;
+        z-index: 800;
+
+        .header__nav {
+            width: 100%;
+        }
+
+        .header__nav-ul {
+            max-height: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+
+        .header__nav-item {
+            max-height: 100%;
+        }
+
+        .nav__item-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: $btn-neutral-clr;
+        }
+
+        .nav__item-p {
+            text-align: center;
+            width: clamp(7.2rem, 4.85vw, 12rem);
+            font-size: clamp(1.2rem, 1.47vw, 2rem);
+            font-weight: 500;
+        }
+
+        .nav__item-svg {
+            height: clamp(2.5rem, 3.3vw, 5rem);
+            aspect-ratio: 1;
+        }
+
+        .nav__svg-path {
+            stroke: $btn-neutral-clr;
+        }
+
+        .nav__item-link:hover,
+        .nav__item-link:hover .nav__svg-path {
+            stroke: $btn-hover-clr;
+            color: $btn-hover-clr;
+        }
+
+        .nav__item-link:active,
+        .nav__item-link:active .nav__svg-path {
+            stroke: $btn-active-clr;
+            color: $btn-active-clr;
+        }
+
+        .nav__item-btn {
+            width: clamp(4.5rem, 6vw, 8rem);
+            aspect-ratio: 1;
+            position: relative;
+            padding: 0.25rem;
+            top: -7dvh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50%;
+            background-color: $btn-primary-clr;
+            cursor: pointer;
+            overflow: hidden;
+
+            .nav__item-svg {
+                height: 100%;
+                border: none;
+                border-radius: 50%;
+            }
+        }
+
+        .nav__item-btn:hover {
+            background-color: $btn-hover-clr;
+        }
+    }
+
+    .main {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2rem;
+        padding: 0rem clamp(1rem, 3vw, 5rem);
+
+        .main__welcome {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .main__welcome-text-div {
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5rem;
+        }
+
+        .main__welcome-h1 {
+            font-size: clamp(3rem, 4.7vw, 6.4rem);
+            font-weight: 900;
+            color: $title-primary-clr;
+        }
+
+        .main__welcome-p {
+            font-size: clamp(1.125rem, 1.75vw, 2.4rem);
+            font-weight: 600;
+        }
+
+        .main__welcome-btn-div {
+            position: absolute;
+            top: 2rem;
+            right: clamp(1rem, 3vw, 5rem);
+            display: flex;
+            align-items: center;
+            column-gap: 1rem;
+            height: fit-content;
+        }
+
+        .main__welcome-div-p {
+            font-weight: 600;
+        }
+
+        .main__welcome-btn {
+            height: 2.5rem;
+            aspect-ratio: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 50%;
+            background-color: $btn-primary-clr;
+            cursor: pointer;
+            overflow: hidden;
+
+            .main__welcome-btn-svg {
+                width: 100%;
+                aspect-ratio: 1;
+            }
+        }
+
+        .main__welcome-btn:hover {
+            background-color: $btn-hover-clr;
+        }
+
+        .main__div-row {
+            display: flex;
+            justify-content: space-around;
+            column-gap: 4rem;
+        }
+
+        .main__section {
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5rem;
+            width: 100%;
+        }
+
+        .main__section-h3 {
+            font-size: clamp(1.5rem, 2.35vw, 3.2rem);
+            font-weight: 600;
+            color: $subtitle-primary-clr;
+        }
+
+        .main__section-p {
+            font-size: clamp(1rem, 1.175vw, 1.6rem);
+        }
+
+        .main__agenda {
+            display: flex;
+            flex-direction: column;
+            row-gap: 2rem;
+        }
+
+        .main__agenda-intro {
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.5rem;
+        }
+
+        .agenda__intro-h2 {
+            font-size: clamp(2.25rem, 3.53vw, 4.8rem);
+            font-weight: 600;
+            color: $title-primary-clr;
+        }
+
+        .agenda__intro-p {
+            font-size: clamp(1.2rem, 1.47vw, 2rem);
+            font-weight: 600;
+        }
+
+        .container-tasks {
+            display: grid;
+            padding: 1rem;
+            gap: 1rem;
+
+            .card {
+                @for $i from 0 through 9 {
+                    $hsl-starting-deg: 150deg;
+                    $hsl-variation: 15;
+
+                    &:nth-child(#{$i + 1}) {
+
+                        .card__color {
+                            background-color: hsl($hsl-starting-deg + $i * $hsl-variation, 50%, 50%);
+                        }
+
+                        .card__category {
+                            color: hsl($hsl-starting-deg + $i * $hsl-variation, 50%, 50%);
+                        }
+
+                    }
+                }
+            }
+        }
+
+        @import "card";
+
+        @import "formSection";
+
+        .d-none {
+            display: none;
+        }
+    }
+
+    .footer {
+        height: 15dvh;
+    }
+
+    .d-none {
+        display: none;
+    }
+}

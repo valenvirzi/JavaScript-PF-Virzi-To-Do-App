@@ -1,0 +1,14 @@
+@media (max-width: 475px) {
+
+    .main__div-row {
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+    }
+
+    .body {
+        .footer {
+            height: 21dvh;
+        }
+    }
+}
