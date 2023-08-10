@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li class="header__nav-item">
-                    <button type="button" class="nav__item-btn">
+                    <button type="button" id="btnAddTask" class="nav__item-btn">
                         <img class="nav__item-svg" src="img/plus.svg" alt="add icon">
                     </button>
                 </li>
@@ -70,11 +70,11 @@
         <div id="inicio"></div>
         <section class="main__welcome">
             <div class="main__welcome-text-div">
-                <h1 class="main__welcome-h1">¡Hola, <span>usuario</span>!</h1>
+                <h1 class="main__welcome-h1">¡Hola, <span id="spanUserName">usuario</span>!</h1>
                 <p class="main__welcome-p">Anota y consulta aquí tus tareas diarias.</p>
             </div>
         </section>
-        <section class="main__welcome-btn-div">
+        <!-- <section class="main__welcome-btn-div">
             <p class="main__welcome-div-p">Cierra sesión</p>
             <button type="button" class="main__welcome-btn d-none">
                 <img class="main__welcome-btn-svg" src="img/user-plus.svg" alt="user register">
@@ -82,18 +82,18 @@
             <button type="button" class="main__welcome-btn">
                 <img class="main__welcome-btn-svg" src="img/user-xmark.svg" alt="user close">
             </button>
-        </section>
+        </section> -->
         <section class="main__div-row">
             <section class="main__section">
                 <h3 class="main__section-h3">Pendientes hoy</h3>
-                <ul class="container-tasks" id="todayContainer">
+                <ul class="container-tasks" id="todayTaskContainer">
                     <p class="main__section-p">No tienes tareas pendientes para hoy.</p>
                 </ul>
             </section>
 
             <section class="main__section">
                 <h3 class="main__section-h3">Tareas importantes</h3>
-                <ul class="container-tasks" id="importantContainer">
+                <ul class="container-tasks" id="importantTaskContainer">
                     <p class="main__section-p">No tienes tareas en esta categoría.</p>
                 </ul>
             </section>
@@ -106,7 +106,7 @@
             <div class="main__div-row">
                 <section class="main__section">
                     <h4 class="main__section-h3">Pendientes</h4>
-                    <ul class="container-tasks" id="pendingContainer">
+                    <ul class="container-tasks" id="pendingTaskContainer">
                         <!-- <p class="main__section-p">No tienes tareas pendientes.</p> -->
                         <li class="card">
                             <div class="card__color"></div>
@@ -116,13 +116,13 @@
                                 <div class="card__div">
                                     <img class="card__svg" src="img/clock.svg" alt="clock">
                                     <p class="card__p">
-                                        <span>12/08/2023 9:00hs</span>
+                                        <span class="card__finish-time">12/08/2023 9:00hs</span>
                                     </p>
                                 </div>
                                 <div class="card__div">
                                     <img class="card__svg" src="img/paragraph.svg" alt="description">
                                     <p class="card__p">
-                                        <span>...</span>
+                                        <span class="card__description">...</span>
                                     </p>
                                 </div>
                                 <button type="button" class="card__btn close">
@@ -141,13 +141,13 @@
                                 <div class="card__div">
                                     <img class="card__svg" src="img/clock.svg" alt="clock">
                                     <p class="card__p">
-                                        <span>12/08/2023 9:00hs</span>
+                                        <span class="card__finish-time">12/08/2023 9:00hs</span>
                                     </p>
                                 </div>
                                 <div class="card__div">
-                                    <img class="card__svg" src="img/paragraph.svg" alt="description">
+                                    <img class="card__svg desc-svg" src="img/paragraph.svg" alt="description">
                                     <p class="card__p">
-                                        <span>...</span>
+                                        <span class="card__description">...</span>
                                     </p>
                                 </div>
                                 <button type="button" class="card__btn close">
@@ -166,13 +166,13 @@
                                 <div class="card__div">
                                     <img class="card__svg" src="img/clock.svg" alt="clock">
                                     <p class="card__p">
-                                        <span>12/08/2023 9:00hs</span>
+                                        <span class="card__finish-time">12/08/2023 9:00hs</span>
                                     </p>
                                 </div>
                                 <div class="card__div">
                                     <img class="card__svg" src="img/paragraph.svg" alt="description">
                                     <p class="card__p">
-                                        <span>...</span>
+                                        <span class="card__description">...</span>
                                     </p>
                                 </div>
                                 <button type="button" class="card__btn close">
@@ -187,39 +187,39 @@
                 </section>
                 <section class="main__section">
                     <h4 class="main__section-h3">Completadas</h4>
-                    <ul class="container-tasks" id="completedContainer">
+                    <ul class="container-tasks" id="completedTaskContainer">
                         <p class="main__section-p">No tienes tareas completadas.</p>
                     </ul>
                 </section>
             </div>
         </section>
-        <section class="main__form-section d-none">
+        <section id="taskFormDisplay" class="main__form-section d-none">
             <div class="main__form-div">
                 <h2 class="form-div__title">Ingrese su tarea</h2>
                 <form id="taskForm" class="task-form">
                     <div class="task-form__div">
                         <label for="taskName">Nombre:</label>
-                        <input class="task-form__input" id="taskName" type="text"
+                        <input form="taskForm" class="task-form__input" id="taskName" type="text"
                             placeholder="Ordenar habitación, Sacar turno con dentista, Pagar alquiler, Lavar auto, etc...">
                     </div>
                     <div class="task-form__div">
                         <label for="taskCategory">Categoría:</label>
-                        <input class="task-form__input" id="taskCategory" type="text"
+                        <input form="taskForm" class="task-form__input" id="taskCategory" type="text"
                             placeholder="Estudio, Trabajo, Hogar, Salud, Otros, etc...">
                     </div>
                     <div class="task-form__div">
-                        <label for="taskEndTime">Fecha límite:</label>
-                        <input class="task-form__input" id="taskEndTime" type="datetime-local">
+                        <label for="taskFinishTime">Fecha límite:</label>
+                        <input form="taskForm" class="task-form__input" id="taskFinishTime" type="datetime-local">
                     </div>
                     <div class="task-form__div">
                         <label for="taskDescription">Descripción:</label>
-                        <textarea class="task-form__input" id="taskDescription"></textarea>
+                        <textarea form="taskForm" class="task-form__input" id="taskDescription"></textarea>
                     </div>
                     <div class="task-form__bottom">
                         <div class="task-form__bottom-div">
                             <div class="checkbox-wrapper-18">
                                 <div class="round">
-                                    <input type="checkbox" id="importantCheckbox" />
+                                    <input type="checkbox" form="taskForm" id="importantCheckbox" />
                                     <label for="importantCheckbox">
                                     </label>
                                 </div>
@@ -228,12 +228,12 @@
                                 Marcar tarea como <i>Importante</i>
                             </label>
                         </div>
-                        <button class="task-form__submit" form="taskForm" type="submit">
+                        <button class="task-form__submit" id="btnSubmitTask" form="taskForm" type="submit">
                             Confirmar
                         </button>
                     </div>
                 </form>
-                <button class="form-div__close-btn" type="button">
+                <button class="form-div__close-btn" id="btnCloseForm" type="button">
                     <img class="form-div__close-svg" src="img/close-x.svg" alt="close">
                 </button>
             </div>
