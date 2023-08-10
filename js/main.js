@@ -87,6 +87,7 @@ function createTaskElement(
   descriptionTask = firstLetterCap(descriptionTask);
   const newTask = document.createElement("li");
   newTask.classList.add("card");
+  // TODO: Asegurarse de que el HTML de la Tarea coincida con la version de abajo 
   newTask.innerHTML = `
     <div class="card__color"></div>
     <div class="card__body">
