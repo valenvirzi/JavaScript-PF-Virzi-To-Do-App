@@ -145,7 +145,7 @@
                                     </p>
                                 </div>
                                 <div class="card__div">
-                                    <img class="card__svg desc-svg" src="img/paragraph.svg" alt="description">
+                                    <img class="card__svg" src="img/paragraph.svg" alt="description">
                                     <p class="card__p">
                                         <span class="card__description">...</span>
                                     </p>
@@ -200,16 +200,16 @@
                     <div class="task-form__div">
                         <label for="taskName">Nombre:</label>
                         <input form="taskForm" class="task-form__input" id="taskName" type="text"
-                            placeholder="Ordenar habitación, Sacar turno con dentista, Pagar alquiler, Lavar auto, etc...">
+                            placeholder="Ordenar habitación, Sacar turno con dentista, Pagar alquiler, Lavar auto, etc..." required>
                     </div>
                     <div class="task-form__div">
                         <label for="taskCategory">Categoría:</label>
                         <input form="taskForm" class="task-form__input" id="taskCategory" type="text"
-                            placeholder="Estudio, Trabajo, Hogar, Salud, Otros, etc...">
+                            placeholder="Estudio, Trabajo, Hogar, Salud, Otros, etc..." required>
                     </div>
                     <div class="task-form__div">
                         <label for="taskFinishTime">Fecha límite:</label>
-                        <input form="taskForm" class="task-form__input" id="taskFinishTime" type="datetime-local">
+                        <input form="taskForm" class="task-form__input" id="taskFinishTime" type="datetime-local" required>
                     </div>
                     <div class="task-form__div">
                         <label for="taskDescription">Descripción:</label>
@@ -219,12 +219,12 @@
                         <div class="task-form__bottom-div">
                             <div class="checkbox-wrapper-18">
                                 <div class="round">
-                                    <input type="checkbox" form="taskForm" id="importantCheckbox" />
-                                    <label for="importantCheckbox">
+                                    <input type="checkbox" form="taskForm" id="importanceCheckbox" />
+                                    <label for="importanceCheckbox">
                                     </label>
                                 </div>
                             </div>
-                            <label class="task-form__label" for="importantCheckbox">
+                            <label class="task-form__label" for="importanceCheckbox">
                                 Marcar tarea como <i>Importante</i>
                             </label>
                         </div>
