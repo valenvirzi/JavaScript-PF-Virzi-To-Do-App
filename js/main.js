@@ -45,49 +45,38 @@ class Task {
   }
 }
 
-function resetForm() {
-  taskName.value = null;
-  taskCategory.value = null;
-  taskFinishTime.value = null;
-  taskDescription.value = null;
-  importanceCheckbox.checked = false;
-  taskFormDisplay.classList.add("d-none");
-}
-
-function firstLetterCap(phrase) {
-  return phrase.charAt(0).toUpperCase() + phrase.slice(1);
-}
-
-function formatDatetime(finishTimeTaskDate) {
-  return `${finishTimeTaskDate.getFullYear()}/${(
-    finishTimeTaskDate.getMonth() + 1
-  )
-    .toString()
-    .padStart(2, "0")}/${finishTimeTaskDate
-    .getDate()
-    .toString()
-    .padStart(2, "0")} ${finishTimeTaskDate
-    .getHours()
-    .toString()
-    .padStart(2, "0")}:${finishTimeTaskDate
-    .getMinutes()
-    .toString()
-    .padStart(2, "0")}hs`;
+function appendTaskToContainer(array, taskContainer) {
+  emptyContainer(taskContainer);
+  array.forEach((tarea) => {
+    taskContainer.appendChild(
+      createTaskElement(
+        tarea.id,
+        tarea.name,
+        tarea.category,
+        tarea.finishTime,
+        tarea.description
+      )
+    );
+  });
+  notifyEmptyContainer(taskContainer);
 }
 
 function createTaskElement(
   idTask,
   nameTask,
   categoryTask,
-  finishTimeTaskDate,
+  finishTimeTask,
   descriptionTask
 ) {
+  console.log(finishTimeTask);
+  let finishTimeTaskDate = new Date(finishTimeTask);
+  console.log(finishTimeTaskDate);
   nameTask = firstLetterCap(nameTask);
   categoryTask = firstLetterCap(categoryTask);
   descriptionTask = firstLetterCap(descriptionTask);
   const newTask = document.createElement("li");
   newTask.classList.add("card");
-  // TODO: Asegurarse de que el HTML de la Tarea coincida con la version de abajo 
+  // TODO: Asegurarse de que el HTML de la Tarea coincida con la version de abajo
   newTask.innerHTML = `
     <div class="card__color"></div>
     <div class="card__body">
@@ -116,22 +105,62 @@ function createTaskElement(
   return newTask;
 }
 
+function emptyContainer(container) {
+  container.innerHTML = "";
+}
+
+function notifyEmptyContainer(container) {
+  if (container.innerHTML == "") {
+    let p = document.createElement("p");
+    p.classList.add("main__section-p");
+    p.innerText = "No tienes tareas en esta categoría.";
+    container.appendChild(p);
+  }
+}
+
+function resetForm() {
+  taskName.value = null;
+  taskCategory.value = null;
+  taskFinishTime.value = null;
+  taskDescription.value = null;
+  importanceCheckbox.checked = false;
+  taskFormDisplay.classList.add("d-none");
+}
+
+function firstLetterCap(phrase) {
+  return phrase.charAt(0).toUpperCase() + phrase.slice(1);
+}
+
+function formatDatetime(finishTimeTaskDate) {
+  return `${finishTimeTaskDate.getDate().toString().padStart(2, "0")}/${(
+    finishTimeTaskDate.getMonth() + 1
+  )
+    .toString()
+    .padStart(2, "0")}/${finishTimeTaskDate.getFullYear()} ${finishTimeTaskDate
+    .getHours()
+    .toString()
+    .padStart(2, "0")}:${finishTimeTaskDate
+    .getMinutes()
+    .toString()
+    .padStart(2, "0")}hs`;
+}
+
 //TODO: Crear función que tome las Tareas de los diferentes Arrays y les haga Append en los respectivos contenedores según su Array
+//TODO: Crear función que itere por los arrays y vaya añadiendo los elementos a los respectivos contenedores
 
 //TODO: Encontrar la manera de que el botón de ELIMINAR de cada Tarea remueva la Tarea del Array principal y actualice TODOS los Arrays para dejar de mostrar la Tarea Eliminada
 
 //TODO: Encontrar la manera de que el botón de COMPLETAR de cada Tarea remueva la Tarea del Array de Pendientes, lo Añada al Array de Completadas & actualice TODOS los Arrays para mostrar la Tarea Completada en la sección de Tareas Completadas
 
-function appendTaskToContainer(taskContainer, task) {
-  taskContainer.appendChild(task);
-}
+//TODO: Usar librería de Alerts para notificar que la tarea fue eliminada
 
 function updateArrays() {
   pendingTasksArray = allTasksArray.filter((task) => task.completed == false);
   todayTasksArray = pendingTasksArray.filter((task) => {
     const currentDate = new Date();
+    let finishTimeTaskDate = new Date(task.finishTime);
     if (
-      currentDate.setHours(0, 0, 0, 0) == task.finishTime.setHours(0, 0, 0, 0)
+      currentDate.setHours(0, 0, 0, 0) == finishTimeTaskDate.setHours(0, 0, 0, 0)
     ) {
       return true;
     } else {
@@ -153,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
   btnCloseForm.addEventListener("pointerdown", function closeTaskForm(e) {
     resetForm();
   });
-  // Función para añadir la tarea al documento
+  // Función para añadir la tarea a los Arrays
   taskForm.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -162,19 +191,23 @@ document.addEventListener("DOMContentLoaded", function () {
     const descriptionTask = taskDescription.value;
     const importanceTask = importanceCheckbox.checked;
     const finishTimeTask = taskFinishTime.value;
-    const finishTimeTaskDate = new Date(finishTimeTask);
+    console.log(finishTimeTask);
 
     let newTask = new Task(
       taskId,
       nameTask,
       categoryTask,
-      finishTimeTaskDate,
+      finishTimeTask,
       descriptionTask,
       importanceTask,
       false
     );
     allTasksArray.push(newTask);
     updateArrays();
+    appendTaskToContainer(pendingTasksArray, pendingTaskContainer);
+    appendTaskToContainer(todayTasksArray, todayTaskContainer);
+    appendTaskToContainer(importantTasksArray, importantTaskContainer);
+    appendTaskToContainer(completedTasksArray, completedTaskContainer);
     console.log("Todas");
     console.log(allTasksArray);
     console.log("Pendientes");
