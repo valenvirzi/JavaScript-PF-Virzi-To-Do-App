@@ -128,9 +128,9 @@ function createTaskElement(
       btn.addEventListener("click", function setElementToCompleted(e) {
         const btn = e.target;
         const taskId = btn.getAttribute("data-id");
-        const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() == taskId);
-        if (indexTaskToDelete !== -1) {
-          allTasksArray[indexTaskToDelete].completed = true;
+        const indexTaskToComplete = allTasksArray.findIndex(task => task.id.toString() == taskId);
+        if (indexTaskToComplete !== -1) {
+          allTasksArray[indexTaskToComplete].completed = true;
         }
         updateContainers();
         console.log(allTasksArray);
