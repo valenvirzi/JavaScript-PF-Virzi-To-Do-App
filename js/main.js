@@ -18,7 +18,7 @@ const taskDescription = document.getElementById("taskDescription");
 const importanceCheckbox = document.getElementById("importanceCheckbox");
 const btnSubmitTask = document.getElementById("btnSubmitTask");
 const btnCloseForm = document.getElementById("btnCloseForm");
-const allTasksArray = [];
+let allTasksArray = [];
 let pendingTasksArray = [],
   todayTasksArray = [],
   importantTasksArray = [],
@@ -45,7 +45,7 @@ class Task {
   }
 }
 
-function appendTaskToContainer(array, taskContainer) {
+function appendTasksToContainer(array, taskContainer) {
   emptyContainer(taskContainer);
   array.forEach((tarea) => {
     taskContainer.appendChild(
@@ -61,6 +61,14 @@ function appendTaskToContainer(array, taskContainer) {
   notifyEmptyContainer(taskContainer);
 }
 
+function updateContainers() {
+  updateArrays();
+  appendTasksToContainer(pendingTasksArray, pendingTaskContainer);
+  appendTasksToContainer(todayTasksArray, todayTaskContainer);
+  appendTasksToContainer(importantTasksArray, importantTaskContainer);
+  appendTasksToContainer(completedTasksArray, completedTaskContainer);
+}
+
 function createTaskElement(
   idTask,
   nameTask,
@@ -68,9 +76,7 @@ function createTaskElement(
   finishTimeTask,
   descriptionTask
 ) {
-  console.log(finishTimeTask);
   let finishTimeTaskDate = new Date(finishTimeTask);
-  console.log(finishTimeTaskDate);
   nameTask = firstLetterCap(nameTask);
   categoryTask = firstLetterCap(categoryTask);
   descriptionTask = firstLetterCap(descriptionTask);
@@ -94,16 +100,65 @@ function createTaskElement(
     <span class="card__description">${descriptionTask}</span>
     </p>
     </div>
-    <button type="button" class="card__btn close" id="btnDelete${idTask}">
+    <button type="button" class="card__btn supr" data-id="${idTask}">
     <img class="card__btn-svg" src="img/close-x.svg" alt="close">
     </button>
-    <button type="button" class="card__btn complete" id="btnComplete${idTask}">
+    <button type="button" class="card__btn complete" data-id="${idTask}">
     <img class="card__btn-svg" src="img/tick.svg" alt="complete">
     </button>
     </div>
     `;
+
+    const deleteButtons = document.querySelectorAll(".supr");
+    deleteButtons.forEach(btn => {
+      btn.addEventListener("pointerdown", function deleteElementFromContainer(e) {
+        const btn = e.target;
+        const taskId = btn.getAttribute("data-id");
+        const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() == taskId);
+        if (indexTaskToDelete !== -1) {
+          allTasksArray.splice(indexTaskToDelete, 1);
+        }
+        updateContainers();
+        console.log(allTasksArray);
+      });
+    });
+
+    const completeButtons = document.querySelectorAll(".complete");
+    completeButtons.forEach(btn => {
+      btn.addEventListener("pointerdown", function setElementToCompleted(e) {
+        const btn = e.target;
+        const taskId = btn.getAttribute("data-id");
+        const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() == taskId);
+        if (indexTaskToDelete !== -1) {
+          allTasksArray[indexTaskToDelete].completed = true;
+        }
+        updateContainers();
+        console.log(allTasksArray);
+      });
+    });
   return newTask;
 }
+
+// Función para encontrar y borrar el objeto del array, eliminándolo del DOM
+// function deleteElementFromContainer(e) {
+//   const btn = e.target;
+//   const taskId = btn.getAttribute("data-id");
+//   const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() === taskId);
+//   if (indexTaskToDelete !== -1) {
+//     allTasksArray.splice(indexTaskToDelete, 1);
+//   }
+//   updateContainers();
+// }
+
+// function setElementToCompleted(e) {
+//   const btn = e.target;
+//   const taskId = btn.getAttribute("data-id");
+//   const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() === taskId);
+//   if (indexTaskToDelete !== -1) {
+//     allTasksArray[indexTaskToDelete].completed = true;
+//   }
+//   updateContainers();
+// }
 
 function emptyContainer(container) {
   container.innerHTML = "";
@@ -191,7 +246,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const descriptionTask = taskDescription.value;
     const importanceTask = importanceCheckbox.checked;
     const finishTimeTask = taskFinishTime.value;
-    console.log(finishTimeTask);
 
     let newTask = new Task(
       taskId,
@@ -203,11 +257,7 @@ document.addEventListener("DOMContentLoaded", function () {
       false
     );
     allTasksArray.push(newTask);
-    updateArrays();
-    appendTaskToContainer(pendingTasksArray, pendingTaskContainer);
-    appendTaskToContainer(todayTasksArray, todayTaskContainer);
-    appendTaskToContainer(importantTasksArray, importantTaskContainer);
-    appendTaskToContainer(completedTasksArray, completedTaskContainer);
+    updateContainers();
     console.log("Todas");
     console.log(allTasksArray);
     console.log("Pendientes");
@@ -220,28 +270,16 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(completedTasksArray);
     // Aumento el valor de ID en 1 para diferenciar el siguiente objeto del objeto recién creado
     taskId++;
-
-    // Mostrar Elemento
-    //
-    // todayTaskContainer.appendChild(
-    //   createTaskElement(
-    //     nameTask,
-    //     categoryTask,
-    //     finishTimeTask,
-    //     descriptionTask,
-    //     importanceTask
-    //   )
-    // );
     btnSubmitTask.addEventListener("pointerdown", resetForm());
   });
 });
-console.log("Todas");
-console.log(allTasksArray);
-console.log("Pendientes");
-console.log(pendingTasksArray);
-console.log("Hoy");
-console.log(todayTasksArray);
-console.log("Importantes");
-console.log(importantTasksArray);
-console.log("Completadas");
-console.log(completedTasksArray);
+// console.log("Todas");
+// console.log(allTasksArray);
+// console.log("Pendientes");
+// console.log(pendingTasksArray);
+// console.log("Hoy");
+// console.log(todayTasksArray);
+// console.log("Importantes");
+// console.log(importantTasksArray);
+// console.log("Completadas");
+// console.log(completedTasksArray);

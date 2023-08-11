@@ -63,7 +63,7 @@
     cursor: pointer;
 }
 
-.close {
+.supr {
     top: 0.4rem;
     right: 0.5rem;
 }
@@ -78,8 +78,9 @@
     opacity: 0.5;
 }
 
-.close:hover {
+.supr:hover {
     background-color: hsl(358deg, 100, 68, 0.75);
+
 
     .card__btn-svg {
         opacity: 1;

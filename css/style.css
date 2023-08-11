@@ -344,7 +344,7 @@ a:active {
   border-radius: 50%;
   cursor: pointer;
 }
-.body .main .close {
+.body .main .supr {
   top: 0.4rem;
   right: 0.5rem;
 }
@@ -356,10 +356,10 @@ a:active {
   width: 100%;
   opacity: 0.5;
 }
-.body .main .close:hover {
+.body .main .supr:hover {
   background-color: hsla(358, 100%, 68%, 0.75);
 }
-.body .main .close:hover .card__btn-svg {
+.body .main .supr:hover .card__btn-svg {
   opacity: 1;
 }
 .body .main .complete:hover {
