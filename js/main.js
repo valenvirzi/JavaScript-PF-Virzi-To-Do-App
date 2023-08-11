@@ -45,6 +45,34 @@ class Task {
   }
 }
 
+function deleteElementFromContainer(e) {
+  const btn = e.target;
+  console.log(btn);
+  const taskId = btn.getAttribute("data-id");
+  const indexTaskToDelete = allTasksArray.findIndex(
+    (task) => task.id.toString() == taskId
+  );
+  if (indexTaskToDelete !== -1) {
+    allTasksArray.splice(indexTaskToDelete, 1);
+  }
+  updateContainers();
+  e.stopPropagation();
+}
+
+function setElementToCompleted(e) {
+  const btn = e.target;
+  console.log(btn);
+  const taskId = btn.getAttribute("data-id");
+  const indexTaskToComplete = allTasksArray.findIndex(
+    (task) => task.id.toString() == taskId
+  );
+  if (indexTaskToComplete !== -1) {
+    allTasksArray[indexTaskToComplete].completed = true;
+  }
+  updateContainers();
+  e.stopPropagation();
+}
+
 function appendTasksToContainer(array, taskContainer) {
   emptyContainer(taskContainer);
   array.forEach((tarea) => {
@@ -57,6 +85,44 @@ function appendTasksToContainer(array, taskContainer) {
         tarea.description
       )
     );
+    const deleteButtons = document.querySelectorAll(".supr");
+    console.log(deleteButtons);
+    const completeButtons = document.querySelectorAll(".complete");
+    console.log(completeButtons);
+
+    deleteButtons.forEach((btn) => btn.addEventListener("click", deleteElementFromContainer));
+
+    completeButtons.forEach((btn) => btn.addEventListener("click", setElementToCompleted));
+
+    // deleteButtons.forEach((btn) => {
+    //   btn.addEventListener("click", function deleteElementFromContainer(e) {
+    //     const btn = e.target;
+    //     const taskId = btn.getAttribute("data-id");
+    //     const indexTaskToDelete = allTasksArray.findIndex(
+    //       (task) => task.id.toString() == taskId
+    //     );
+    //     if (indexTaskToDelete !== -1) {
+    //       allTasksArray.splice(indexTaskToDelete, 1);
+    //     }
+    //     updateContainers();
+    //     console.log(allTasksArray);
+    //   });
+    // });
+
+    // completeButtons.forEach((btn) => {
+    //   btn.addEventListener("click", function setElementToCompleted(e) {
+    //     const btn = e.target;
+    //     const taskId = btn.getAttribute("data-id");
+    //     const indexTaskToComplete = allTasksArray.findIndex(
+    //       (task) => task.id.toString() == taskId
+    //     );
+    //     if (indexTaskToComplete !== -1) {
+    //       allTasksArray[indexTaskToComplete].completed = true;
+    //     }
+    //     updateContainers();
+    //     console.log(allTasksArray);
+    //   });
+    // });
   });
   notifyEmptyContainer(taskContainer);
 }
@@ -101,41 +167,13 @@ function createTaskElement(
     </p>
     </div>
     <button type="button" class="card__btn supr" data-id="${idTask}">
-    <img class="card__btn-svg" src="img/close-x.svg" alt="close">
+    <img class="card__btn-svg" src="img/close-x.svg" alt="close" data-id="${idTask}">
     </button>
     <button type="button" class="card__btn complete" data-id="${idTask}">
-    <img class="card__btn-svg" src="img/tick.svg" alt="complete">
+    <img class="card__btn-svg" src="img/tick.svg" alt="complete" data-id="${idTask}">
     </button>
     </div>
     `;
-
-    const deleteButtons = document.querySelectorAll(".supr");
-    deleteButtons.forEach(btn => {
-      btn.addEventListener("click", function deleteElementFromContainer(e) {
-        const btn = e.target;
-        const taskId = btn.getAttribute("data-id");
-        const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() == taskId);
-        if (indexTaskToDelete !== -1) {
-          allTasksArray.splice(indexTaskToDelete, 1);
-        }
-        updateContainers();
-        console.log(allTasksArray);
-      });
-    });
-
-    const completeButtons = document.querySelectorAll(".complete");
-    completeButtons.forEach(btn => {
-      btn.addEventListener("click", function setElementToCompleted(e) {
-        const btn = e.target;
-        const taskId = btn.getAttribute("data-id");
-        const indexTaskToComplete = allTasksArray.findIndex(task => task.id.toString() == taskId);
-        if (indexTaskToComplete !== -1) {
-          allTasksArray[indexTaskToComplete].completed = true;
-        }
-        updateContainers();
-        console.log(allTasksArray);
-      });
-    });
   return newTask;
 }
 
@@ -215,7 +253,8 @@ function updateArrays() {
     const currentDate = new Date();
     let finishTimeTaskDate = new Date(task.finishTime);
     if (
-      currentDate.setHours(0, 0, 0, 0) == finishTimeTaskDate.setHours(0, 0, 0, 0)
+      currentDate.setHours(0, 0, 0, 0) ==
+      finishTimeTaskDate.setHours(0, 0, 0, 0)
     ) {
       return true;
     } else {
