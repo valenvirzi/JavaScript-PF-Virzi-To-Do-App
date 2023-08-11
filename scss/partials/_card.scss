@@ -79,7 +79,7 @@
 }
 
 .supr:hover {
-    background-color: hsl(358deg, 100, 68, 0.75);
+    background-color: hsl(358deg, 100, 68, 0.65);
 
 
     .card__btn-svg {
@@ -88,7 +88,24 @@
 }
 
 .complete:hover {
-    background-color: hsl(154deg, 53, 57, 0.75);
+    background-color: hsl(154deg, 53, 57, 0.65);
+
+    .card__btn-svg {
+        opacity: 1;
+    }
+}
+
+.supr:active {
+    background-color: hsl(358deg, 100, 68, 1);
+
+
+    .card__btn-svg {
+        opacity: 1;
+    }
+}
+
+.complete:active {
+    background-color: hsl(154deg, 53, 57, 1);
 
     .card__btn-svg {
         opacity: 1;

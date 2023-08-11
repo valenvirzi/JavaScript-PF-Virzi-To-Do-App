@@ -357,15 +357,27 @@ a:active {
   opacity: 0.5;
 }
 .body .main .supr:hover {
-  background-color: hsla(358, 100%, 68%, 0.75);
+  background-color: hsla(358, 100%, 68%, 0.65);
 }
 .body .main .supr:hover .card__btn-svg {
   opacity: 1;
 }
 .body .main .complete:hover {
-  background-color: hsla(154, 53%, 57%, 0.75);
+  background-color: hsla(154, 53%, 57%, 0.65);
 }
 .body .main .complete:hover .card__btn-svg {
+  opacity: 1;
+}
+.body .main .supr:active {
+  background-color: hsl(358, 100%, 68%);
+}
+.body .main .supr:active .card__btn-svg {
+  opacity: 1;
+}
+.body .main .complete:active {
+  background-color: hsl(154, 53%, 57%);
+}
+.body .main .complete:active .card__btn-svg {
   opacity: 1;
 }
 .body .main .main__form-section {

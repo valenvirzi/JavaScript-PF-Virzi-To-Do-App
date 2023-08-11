@@ -111,7 +111,7 @@ function createTaskElement(
 
     const deleteButtons = document.querySelectorAll(".supr");
     deleteButtons.forEach(btn => {
-      btn.addEventListener("pointerdown", function deleteElementFromContainer(e) {
+      btn.addEventListener("click", function deleteElementFromContainer(e) {
         const btn = e.target;
         const taskId = btn.getAttribute("data-id");
         const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() == taskId);
@@ -125,7 +125,7 @@ function createTaskElement(
 
     const completeButtons = document.querySelectorAll(".complete");
     completeButtons.forEach(btn => {
-      btn.addEventListener("pointerdown", function setElementToCompleted(e) {
+      btn.addEventListener("click", function setElementToCompleted(e) {
         const btn = e.target;
         const taskId = btn.getAttribute("data-id");
         const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() == taskId);
@@ -230,11 +230,11 @@ function updateArrays() {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Función para mostrar el formulario de la tarea a añadir
-  btnAddTask.addEventListener("pointerdown", function showTaskForm(e) {
+  btnAddTask.addEventListener("click", function showTaskForm(e) {
     taskFormDisplay.classList.remove("d-none");
   });
   // Función para cerrar el formulario y resetear lo escrito
-  btnCloseForm.addEventListener("pointerdown", function closeTaskForm(e) {
+  btnCloseForm.addEventListener("click", function closeTaskForm(e) {
     resetForm();
   });
   // Función para añadir la tarea a los Arrays
@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(completedTasksArray);
     // Aumento el valor de ID en 1 para diferenciar el siguiente objeto del objeto recién creado
     taskId++;
-    btnSubmitTask.addEventListener("pointerdown", resetForm());
+    btnSubmitTask.addEventListener("click", resetForm());
   });
 });
 // console.log("Todas");
