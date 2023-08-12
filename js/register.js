@@ -32,5 +32,5 @@ userForm.addEventListener("submit", (e) => {
 btnSubmitUser.addEventListener("pointerdown", () => {
     window.location.href = "index.html";
 });
-
+// TODO: Pasar todo a un mismo archivo js
 export default nameUser;

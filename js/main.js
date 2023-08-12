@@ -1,3 +1,4 @@
+// TODO: Pasar todo a un mismo archivo js
 import { nameUser } from "register.js";
 // Declaración de variables para identificar los elementos del documento
 const btnAddTask = document.getElementById("btnAddTask");
