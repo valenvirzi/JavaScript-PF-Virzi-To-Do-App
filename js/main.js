@@ -44,6 +44,7 @@ class Task {
     this.completed = completed;
   }
 }
+// Función para encontrar y borrar el objeto del array, eliminándolo del DOM
 
 function deleteElementFromContainer(e) {
   const btn = e.target;
@@ -58,6 +59,7 @@ function deleteElementFromContainer(e) {
   updateContainers();
   e.stopPropagation();
 }
+// Función para encontrar y cambiar la propiedad completed del objeto encontrado, mostrándolo en la sección correspondiente
 
 function setElementToCompleted(e) {
   const btn = e.target;
@@ -90,39 +92,13 @@ function appendTasksToContainer(array, taskContainer) {
     const completeButtons = document.querySelectorAll(".complete");
     console.log(completeButtons);
 
-    deleteButtons.forEach((btn) => btn.addEventListener("click", deleteElementFromContainer));
+    deleteButtons.forEach((btn) =>
+      btn.addEventListener("pointerdown", deleteElementFromContainer)
+    );
 
-    completeButtons.forEach((btn) => btn.addEventListener("click", setElementToCompleted));
-
-    // deleteButtons.forEach((btn) => {
-    //   btn.addEventListener("click", function deleteElementFromContainer(e) {
-    //     const btn = e.target;
-    //     const taskId = btn.getAttribute("data-id");
-    //     const indexTaskToDelete = allTasksArray.findIndex(
-    //       (task) => task.id.toString() == taskId
-    //     );
-    //     if (indexTaskToDelete !== -1) {
-    //       allTasksArray.splice(indexTaskToDelete, 1);
-    //     }
-    //     updateContainers();
-    //     console.log(allTasksArray);
-    //   });
-    // });
-
-    // completeButtons.forEach((btn) => {
-    //   btn.addEventListener("click", function setElementToCompleted(e) {
-    //     const btn = e.target;
-    //     const taskId = btn.getAttribute("data-id");
-    //     const indexTaskToComplete = allTasksArray.findIndex(
-    //       (task) => task.id.toString() == taskId
-    //     );
-    //     if (indexTaskToComplete !== -1) {
-    //       allTasksArray[indexTaskToComplete].completed = true;
-    //     }
-    //     updateContainers();
-    //     console.log(allTasksArray);
-    //   });
-    // });
+    completeButtons.forEach((btn) =>
+      btn.addEventListener("pointerdown", setElementToCompleted)
+    );
   });
   notifyEmptyContainer(taskContainer);
 }
@@ -148,22 +124,21 @@ function createTaskElement(
   descriptionTask = firstLetterCap(descriptionTask);
   const newTask = document.createElement("li");
   newTask.classList.add("card");
-  // TODO: Asegurarse de que el HTML de la Tarea coincida con la version de abajo
   newTask.innerHTML = `
     <div class="card__color"></div>
     <div class="card__body">
-    <h5 class="card__category">${categoryTask}</h5>
-    <h4 class="card__name">${nameTask}</h4>
+    <h5 class="card__category"></h5>
+    <h4 class="card__name"></h4>
     <div class="card__div">
     <img class="card__svg" src="img/clock.svg" alt="clock">
     <p class="card__p">
-    <span class="card__finish-time">${formatDatetime(finishTimeTaskDate)}</span>
+    <span class="card__finish-time"></span>
     </p>
     </div>
     <div class="card__div">
     <img class="card__svg desc-svg" src="img/paragraph.svg" alt="description">
     <p class="card__p">
-    <span class="card__description">${descriptionTask}</span>
+    <span class="card__description"></span>
     </p>
     </div>
     <button type="button" class="card__btn supr" data-id="${idTask}">
@@ -174,29 +149,17 @@ function createTaskElement(
     </button>
     </div>
     `;
+  let category, name, description, time;
+  category = newTask.querySelector(".card__category");
+  name = newTask.querySelector(".card__name");
+  description = newTask.querySelector(".card__description");
+  time = newTask.querySelector(".card__finish-time");
+  category.textContent = String(categoryTask);
+  name.textContent = String(nameTask);
+  description.textContent = String(descriptionTask);
+  time.textContent = String(formatDatetime(finishTimeTaskDate));
   return newTask;
 }
-
-// Función para encontrar y borrar el objeto del array, eliminándolo del DOM
-// function deleteElementFromContainer(e) {
-//   const btn = e.target;
-//   const taskId = btn.getAttribute("data-id");
-//   const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() === taskId);
-//   if (indexTaskToDelete !== -1) {
-//     allTasksArray.splice(indexTaskToDelete, 1);
-//   }
-//   updateContainers();
-// }
-
-// function setElementToCompleted(e) {
-//   const btn = e.target;
-//   const taskId = btn.getAttribute("data-id");
-//   const indexTaskToDelete = allTasksArray.findIndex(task => task.id.toString() === taskId);
-//   if (indexTaskToDelete !== -1) {
-//     allTasksArray[indexTaskToDelete].completed = true;
-//   }
-//   updateContainers();
-// }
 
 function emptyContainer(container) {
   container.innerHTML = "";
@@ -238,13 +201,6 @@ function formatDatetime(finishTimeTaskDate) {
     .padStart(2, "0")}hs`;
 }
 
-//TODO: Crear función que tome las Tareas de los diferentes Arrays y les haga Append en los respectivos contenedores según su Array
-//TODO: Crear función que itere por los arrays y vaya añadiendo los elementos a los respectivos contenedores
-
-//TODO: Encontrar la manera de que el botón de ELIMINAR de cada Tarea remueva la Tarea del Array principal y actualice TODOS los Arrays para dejar de mostrar la Tarea Eliminada
-
-//TODO: Encontrar la manera de que el botón de COMPLETAR de cada Tarea remueva la Tarea del Array de Pendientes, lo Añada al Array de Completadas & actualice TODOS los Arrays para mostrar la Tarea Completada en la sección de Tareas Completadas
-
 //TODO: Usar librería de Alerts para notificar que la tarea fue eliminada
 
 function updateArrays() {
@@ -269,11 +225,11 @@ function updateArrays() {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Función para mostrar el formulario de la tarea a añadir
-  btnAddTask.addEventListener("click", function showTaskForm(e) {
+  btnAddTask.addEventListener("pointerdown", function showTaskForm(e) {
     taskFormDisplay.classList.remove("d-none");
   });
   // Función para cerrar el formulario y resetear lo escrito
-  btnCloseForm.addEventListener("click", function closeTaskForm(e) {
+  btnCloseForm.addEventListener("pointerdown", function closeTaskForm(e) {
     resetForm();
   });
   // Función para añadir la tarea a los Arrays
@@ -309,16 +265,6 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(completedTasksArray);
     // Aumento el valor de ID en 1 para diferenciar el siguiente objeto del objeto recién creado
     taskId++;
-    btnSubmitTask.addEventListener("click", resetForm());
+    btnSubmitTask.addEventListener("pointerdown", resetForm());
   });
 });
-// console.log("Todas");
-// console.log(allTasksArray);
-// console.log("Pendientes");
-// console.log(pendingTasksArray);
-// console.log("Hoy");
-// console.log(todayTasksArray);
-// console.log("Importantes");
-// console.log(importantTasksArray);
-// console.log("Completadas");
-// console.log(completedTasksArray);
