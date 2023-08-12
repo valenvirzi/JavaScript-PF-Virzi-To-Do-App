@@ -27,8 +27,56 @@
     <meta property="twitter:image" content="https://i.imgur.com/RVPwzws.png" />
 </head>
 
-<body class="body">
-    
+<body class="register-body">
+    <main class="main">
+        <h1 class="register-main__h1">Ingresa los datos para continuar</h1>
+        <p>(Todos los campos son requeridos, incluso los Términos y Condiciones)</p>
+        <form id="userForm" class="user-form">
+            <div class="user-form__div">
+                <label for="userName">Nombre:</label>
+                <input form="userForm" class="user-form__input" id="userName" type="text" placeholder="Ej: Manuel"
+                    required>
+            </div>
+            <div class="user-form__div">
+                <label for="userLastName">Apellido:</label>
+                <input form="userForm" class="user-form__input" id="userLastName" type="text" placeholder="Ej: Ginóbili"
+                    required>
+            </div>
+            <div class="user-form__div">
+                <label for="userEmail">E-mail:</label>
+                <input form="userForm" class="user-form__input" id="userEmail" type="email"
+                    placeholder="Ej: manu_spurs@gmail.com" required>
+            </div>
+            <div class="user-form__div">
+                <label for="userCountry">País:</label>
+                <input type="text" form="userForm" class="user-form__input" id="userCountry" placeholder="Ej: Argentina"
+                    required>
+            </div>
+            <div class="user-form__bottom">
+                <div class="user-form__bottom-div">
+                    <div class="checkbox-wrapper-18">
+                        <div class="round">
+                            <input type="checkbox" form="userForm" id="termsCheckbox" required />
+                            <label for="termsCheckbox">
+                            </label>
+                        </div>
+                    </div>
+                    <label class="user-form__label" for="termsCheckbox">
+                        Acepto los <i>términos y condiciones</i>
+                    </label>
+                </div>
+                <div class="user-form__bottom-div">
+                    <button class="user-form__generate" id="btnGenerateUser" type="button">
+                        Generar Automáticamente
+                    </button>
+                    <button class="user-form__submit" id="btnSubmitUser" form="userForm" type="submit">
+                        Registrarse
+                    </button>
+                </div>
+            </div>
+        </form>
+    </main>
 </body>
-<script src="js/main.js"></script>
+<script src="js/register.js"></script>
+
 </html>

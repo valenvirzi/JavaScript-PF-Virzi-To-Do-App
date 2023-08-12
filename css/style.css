@@ -547,10 +547,121 @@ a:active {
   display: none;
 }
 .body .footer {
-  height: 15dvh;
+  height: 18dvh;
 }
 .body .d-none {
   display: none;
+}
+
+.register-body {
+  padding: 2rem;
+}
+.register-body .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+}
+.register-body .main .register-main__h1 {
+  font-size: 3rem;
+  font-weight: 600;
+  color: hsl(205, 50%, 33%);
+}
+.register-body .main .user-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  width: 60vw;
+}
+.register-body .main .user-form__div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+.register-body .main .user-form__div input {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 2.5rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 1.4rem;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 8px;
+  border-bottom: 2px solid hsl(181, 49%, 43%);
+}
+.register-body .main .user-form__bottom {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1.5rem;
+}
+.register-body .main .user-form__bottom-div {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round {
+  position: relative;
+  display: flex;
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round label {
+  background-color: hsl(0, 0%, 100%);
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  width: 28px;
+  display: block;
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 8px;
+  opacity: 0;
+  position: absolute;
+  top: 9px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round input[type=checkbox] {
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round input[type=checkbox]:checked + label {
+  background-color: hsl(154, 53%, 57%);
+  border-color: hsl(154, 53%, 57%);
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round input[type=checkbox]:hover + label {
+  background-color: hsla(159, 86%, 55%, 0.5);
+  border-color: hsla(159, 86%, 55%, 0.5);
+}
+.register-body .main .user-form__bottom-div .checkbox-wrapper-18 .round input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+.register-body .main .user-form__submit,
+.register-body .main .user-form__generate {
+  border: none;
+  border-radius: 3rem;
+  padding: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: hsl(204, 48%, 15%);
+  background-color: hsl(154, 53%, 57%);
+  cursor: pointer;
+}
+.register-body .main .user-form__submit:hover,
+.register-body .main .user-form__generate:hover {
+  background-color: hsl(159, 86%, 55%);
+}
+.register-body .main label {
+  font-size: 1.35rem;
+  cursor: pointer;
+}
+.register-body .main label i {
+  font-style: italic;
 }
 
 @media (max-width: 475px) {
