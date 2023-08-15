@@ -1,5 +1,5 @@
+import { userNameTextContent } from "./register.js";
 // TODO: Pasar todo a un mismo archivo js
-import { nameUser } from "register.js";
 // Declaración de variables para identificar los elementos del documento
 const btnAddTask = document.getElementById("btnAddTask");
 const spanUserName = document.getElementById("spanUserName");
@@ -226,7 +226,8 @@ function updateArrays() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  spanUserName.textContent = nameUser;
+  //TODO:
+  spanUserName.textContent = userNameTextContent;
   // Función para mostrar el formulario de la tarea a añadir
   btnAddTask.addEventListener("pointerdown", function showTaskForm(e) {
     taskFormDisplay.classList.remove("d-none");

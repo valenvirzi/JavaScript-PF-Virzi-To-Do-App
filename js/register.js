@@ -9,28 +9,30 @@ const btnGenerateUser = document.getElementById("btnGenerateUser");
 const btnSubmitUser = document.getElementById("btnSubmitUser");
 let nameUser, lastNameUser, emailUser, countryUser, termsCheck;
 
-btnGenerateUser.addEventListener("pointerdown", async () => {
-  const response = await fetch(generateUserURL);
-  const data = await response.json();
+document.addEventListener("DOMContentLoaded", function () {
+  btnGenerateUser.addEventListener("pointerdown", async () => {
+    const response = await fetch(generateUserURL);
+    const data = await response.json();
 
-  userName.value = data.results[0].name.first;
-  userLastName.value = data.results[0].name.last;
-  userEmail.value = data.results[0].email;
-  userCountry.value = data.results[0].location.country;
-});
+    userName.value = data.results[0].name.first;
+    userLastName.value = data.results[0].name.last;
+    userEmail.value = data.results[0].email;
+    userCountry.value = data.results[0].location.country;
+  });
 
-userForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+  userForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  nameUser = userName.value;
-  lastNameUser = userLastName.value;
-  emailUser = userEmail.value;
-  countryUser = userCountry.value;
-  termsCheck = termsCheckbox.checked;
-});
+    nameUser = String(userName.value);
+    lastNameUser = userLastName.value;
+    emailUser = userEmail.value;
+    countryUser = userCountry.value;
+    termsCheck = termsCheckbox.checked;
+  });
 
-btnSubmitUser.addEventListener("pointerdown", () => {
+  btnSubmitUser.addEventListener("pointerdown", () => {
     window.location.href = "index.html";
+  });
 });
 // TODO: Pasar todo a un mismo archivo js
-export default nameUser;
+export const userNameTextContent = nameUser;
