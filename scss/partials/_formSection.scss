@@ -16,17 +16,25 @@
         z-index: 900;
         border: none;
         border-radius: 8px;
-        background-color: hsl(0deg, 100, 100);
         display: flex;
         flex-direction: column;
         row-gap: 2rem;
         padding: 1.5rem;
+        background-color: hsl(0deg, 100, 100);
+    }
+
+    .main__form-div__dark {
+        background-color: $bg-dark-clr;
     }
 
     .form-div__title {
         font-size: 3rem;
         font-weight: 600;
         color: $title-primary-clr;
+    }
+
+    .form-div__title__dark {
+        color: $title-dark-clr;
     }
 
     .task-form {

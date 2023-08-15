@@ -28,6 +28,10 @@
 </head>
 
 <body class="body">
+    <button id="btnSwitchTheme" type="button">
+        <img id="lightBulb" class="btnTheme-img d-none" src="img/light-bulb.svg" alt="light bulb">
+        <img id="darkBulb" class="btnTheme-img" src="img/dark-bulb.svg" alt="dark bulb">
+    </button>
     <header class="header d-none">
         <nav class="header__nav">
             <ul class="header__nav-ul">
@@ -69,7 +73,7 @@
     <main class="main">
         <section class="register-body">
             <div class="main-register">
-                <h1 class="register-main__h1">Ingresa los datos para continuar</h1>
+                <h2 class="register-main__h1">Ingresa los datos para continuar</h2>
                 <p>(Todos los campos son requeridos, incluso los Términos y Condiciones)</p>
                 <form id="userForm" class="user-form">
                     <div class="user-form__div">
@@ -210,7 +214,7 @@
         </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer d-none">
 
     </footer>
 </body>

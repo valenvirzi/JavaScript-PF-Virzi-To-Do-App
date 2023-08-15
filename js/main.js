@@ -1,5 +1,31 @@
-// TODO: Pasar todo a un mismo archivo js
+/*
+El proyecto se trata de un mánager de tareas para el día a día,
+se me ocurrió la idea de instanciar los objetos "Tarea" en base a una clase creada para construirlos e ir almacenándolos en un Array principal en el que se guardarían todas las tareas.
+Cada objeto Tarea tiene ciertas propiedades que luego serviran para filtrarlas y así formar nuevos Arrays a partir de los cuales cargar el DOM:
+Arrays:
+- Pendientes (En general): Todas las tareas cuya propiedad "completed" sea igual a "false", el cual será el estado inicial de todas las tareas creadas.
+- Pendientes para hoy (Basado en "Pendientes"): Todas las tareas cuya tiempo de finalización coincida con la fecha actual, sin importar la hora.
+- Importantes (Basado en "Pendientes"): Todas las tareas que hayan sido marcadas como importantes en su formulario de creación.
+- Completadas: Todas las tareas que hayan sido marcadas como completadas luego de su creación.
+[Todos los arrays son creados con el método Filter en base a algún otro array]
+
+A continuación dejaré comentarios solo para mencionar el accionar de cada función o la identificación de algún otro detalle relevante.
+*/
+
 // Declaración de variables para identificar los elementos del documento
+// Dark Mode
+const btnSwitchTheme = document.getElementById("btnSwitchTheme");
+let darkMode;
+const body = document.querySelector(".body");
+const indexTitle = document.querySelector(".main__welcome-h1");
+const registerTitle = document.querySelector(".register-main__h1");
+const taskFormTitle = document.querySelector(".form-div__title");
+const taskFormDiv = document.querySelector(".main__form-div");
+const indexH2 = document.querySelector(".agenda__intro-h2");
+const lightBulb = document.getElementById("lightBulb");
+const darkBulb = document.getElementById("darkBulb");
+// Usuario
+let nameUser, lastNameUser, emailUser, countryUser, termsCheck;
 const registerBody = document.querySelector(".register-body");
 const generateUserURL = "https://randomuser.me/api/?inc=name,location,email";
 const userForm = document.getElementById("userForm");
@@ -10,10 +36,11 @@ const userCountry = document.getElementById("userCountry");
 const termsCheckbox = document.getElementById("termsCheckbox");
 const btnGenerateUser = document.getElementById("btnGenerateUser");
 const btnSubmitUser = document.getElementById("btnSubmitUser");
-let nameUser, lastNameUser, emailUser, countryUser, termsCheck;
-
+// Display
 const header = document.querySelector(".header");
 const indexBody = document.querySelector(".index-body");
+const footer = document.querySelector(".footer");
+// Tareas
 const btnAddTask = document.getElementById("btnAddTask");
 const spanUserName = document.getElementById("spanUserName");
 const todayTaskContainer = document.getElementById("todayTaskContainer");
@@ -40,6 +67,7 @@ let pendingTasksArray = [],
   completedTasksArray = [];
 let taskId = 0;
 
+// Clase Tarea para la construcción del objeto Tarea
 class Task {
   constructor(
     id,
@@ -63,7 +91,6 @@ class Task {
 
 function deleteElementFromContainer(e) {
   const btn = e.target;
-  console.log(btn);
   const taskId = btn.getAttribute("data-id");
   const indexTaskToDelete = allTasksArray.findIndex(
     (task) => task.id.toString() == taskId
@@ -74,11 +101,10 @@ function deleteElementFromContainer(e) {
   updateContainers();
   e.stopPropagation();
 }
-// Función para encontrar y cambiar la propiedad completed del objeto encontrado, mostrándolo en la sección correspondiente
+// Función para encontrar y cambiar la propiedad "completed" del objeto encontrado, mostrándolo en la sección correspondiente
 
 function setElementToCompleted(e) {
   const btn = e.target;
-  console.log(btn);
   const taskId = btn.getAttribute("data-id");
   const indexTaskToComplete = allTasksArray.findIndex(
     (task) => task.id.toString() == taskId
@@ -90,6 +116,7 @@ function setElementToCompleted(e) {
   e.stopPropagation();
 }
 
+// Función para crear y añadir las tareas al elemento contenedor, en base a su respectivo array, para ser mostrado en el DOM
 function appendTasksToContainer(array, taskContainer) {
   emptyContainer(taskContainer);
   array.forEach((tarea) => {
@@ -103,9 +130,7 @@ function appendTasksToContainer(array, taskContainer) {
       )
     );
     const deleteButtons = document.querySelectorAll(".supr");
-    console.log(deleteButtons);
     const completeButtons = document.querySelectorAll(".complete");
-    console.log(completeButtons);
 
     deleteButtons.forEach((btn) =>
       btn.addEventListener("pointerdown", deleteElementFromContainer)
@@ -118,6 +143,7 @@ function appendTasksToContainer(array, taskContainer) {
   notifyEmptyContainer(taskContainer);
 }
 
+// Función para actualizar el contenido de los elementos contenedores de las tareas en el DOM, se llama cada vez que se realiza un cambio
 function updateContainers() {
   updateArrays();
   appendTasksToContainer(pendingTasksArray, pendingTaskContainer);
@@ -126,6 +152,7 @@ function updateContainers() {
   appendTasksToContainer(completedTasksArray, completedTaskContainer);
 }
 
+// Función para crear el elemento Tarea, en base a las propiedades del objeto Tarea, para luego poder ser agregado al contenedor correspondiente
 function createTaskElement(
   idTask,
   nameTask,
@@ -176,10 +203,12 @@ function createTaskElement(
   return newTask;
 }
 
+// Función para vaciar el contenido del elemento contenedor en el DOM
 function emptyContainer(container) {
   container.innerHTML = "";
 }
 
+// Fonción para mostrar un texto en caso de que el contenedor no posea ningún elemento Tarea en su interior
 function notifyEmptyContainer(container) {
   if (container.innerHTML == "") {
     let p = document.createElement("p");
@@ -189,6 +218,7 @@ function notifyEmptyContainer(container) {
   }
 }
 
+// Función pára borrar la información ingresada en el formulario de creación de tareas
 function resetForm() {
   taskName.value = null;
   taskCategory.value = null;
@@ -198,10 +228,12 @@ function resetForm() {
   taskFormDisplay.classList.add("d-none");
 }
 
+// Función para que el texto ingresado en el formulario de creación de tareas comience siempre con el primer caracter en mayuscula
 function firstLetterCap(phrase) {
   return phrase.charAt(0).toUpperCase() + phrase.slice(1);
 }
 
+// Función para cambiar el formato en que se muestra la fecha para poder hacerlo de forma más clara
 function formatDatetime(finishTimeTaskDate) {
   return `${finishTimeTaskDate.getDate().toString().padStart(2, "0")}/${(
     finishTimeTaskDate.getMonth() + 1
@@ -218,6 +250,24 @@ function formatDatetime(finishTimeTaskDate) {
 
 //TODO: Usar librería de Alerts para notificar que la tarea fue eliminada
 
+/*
+Swal.fire({
+  title: "¿Seguro que que quieres eliminar la Tarea?",
+  text: "¡No podrás revertirlo!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#57cc99",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Sí, deseo eliminarla",
+  cancelButtonText: "Cancelar",
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire("Tarea Elminada", "La tarea ha sido eliminada.", "success");
+  }
+});
+*/
+
+// Función para actualizar los datos contenidos por los Arrays, en base al Array Principal
 function updateArrays() {
   pendingTasksArray = allTasksArray.filter((task) => task.completed == false);
   todayTasksArray = pendingTasksArray.filter((task) => {
@@ -238,7 +288,38 @@ function updateArrays() {
   completedTasksArray = allTasksArray.filter((task) => task.completed == true);
 }
 
+// Función para cambiar el tema de de la página
+function switchTheme(darkMode) {
+  if (darkMode == true && body.classList.contains("body__dark")) {
+    return;
+  } else if (darkMode == true) {
+    body.classList.add("body__dark");
+    indexTitle.classList.add("main__welcome-h1__dark");
+    registerTitle.classList.add("register-main__h1__dark");
+    taskFormTitle.classList.add("form-div__title__dark");
+    taskFormDiv.classList.add("main__form-div__dark");
+    indexH2.classList.add("agenda__intro-h2__dark");
+    lightBulb.classList.remove("d-none");
+    darkBulb.classList.add("d-none");
+  } else {
+    body.classList.remove("body__dark");
+    indexTitle.classList.remove("main__welcome-h1__dark");
+    registerTitle.classList.remove("register-main__h1__dark");
+    taskFormTitle.classList.remove("form-div__title__dark");
+    taskFormDiv.classList.remove("main__form-div__dark");
+    indexH2.classList.remove("agenda__intro-h2__dark");
+    lightBulb.classList.add("d-none");
+    darkBulb.classList.remove("d-none");
+  }
+  localStorage.setItem("dark", JSON.stringify(darkMode));
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  let darkModeLS = localStorage.getItem("dark");
+  darkMode = JSON.parse(darkModeLS);
+  switchTheme(darkMode);
+
+  // Utilización de la API de Generación Aleatoria de Usuarios, para poder generar un Usuario para la aplicación rápidamente
   btnGenerateUser.addEventListener("pointerdown", async () => {
     const response = await fetch(generateUserURL);
     const data = await response.json();
@@ -249,6 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
     userCountry.value = data.results[0].location.country;
   });
 
+  // Utilización de la información proveída por el Formulario de Registro, en este caso utilizo sólo el nombre del usuario para luego darle la bienvenida, pero toda esta información puede ser usada para la creación de un usuario real y su posterior almacenamiento euna base de datos
   userForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -261,6 +343,13 @@ document.addEventListener("DOMContentLoaded", function () {
     registerBody.classList.toggle("d-none");
     header.classList.toggle("d-none");
     indexBody.classList.toggle("d-none");
+    footer.classList.toggle("d-none");
+  });
+
+  // Botón de cambio de Tema
+  btnSwitchTheme.addEventListener("pointerdown", (e) => {
+    darkMode = !darkMode;
+    switchTheme(darkMode);
   });
   // Función para mostrar el formulario de la tarea a añadir
   btnAddTask.addEventListener("pointerdown", function showTaskForm(e) {
@@ -279,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const descriptionTask = taskDescription.value;
     const importanceTask = importanceCheckbox.checked;
     const finishTimeTask = taskFinishTime.value;
-
+    // Creación del objeto Tarea
     let newTask = new Task(
       taskId,
       nameTask,
@@ -291,16 +380,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     allTasksArray.push(newTask);
     updateContainers();
-    console.log("Todas");
-    console.log(allTasksArray);
-    console.log("Pendientes");
-    console.log(pendingTasksArray);
-    console.log("Hoy");
-    console.log(todayTasksArray);
-    console.log("Importantes");
-    console.log(importantTasksArray);
-    console.log("Completadas");
-    console.log(completedTasksArray);
     // Aumento el valor de ID en 1 para diferenciar el siguiente objeto del objeto recién creado
     taskId++;
     btnSubmitTask.addEventListener("pointerdown", resetForm());

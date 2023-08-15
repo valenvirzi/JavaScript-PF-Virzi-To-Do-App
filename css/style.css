@@ -169,7 +169,7 @@ a:active {
   font-size: 1.4rem;
   border: 1px solid rgb(199, 199, 199);
   border-radius: 8px;
-  border-bottom: 2px solid hsl(181, 49%, 43%);
+  border-bottom: 2px solid hsl(12, 76%, 61%);
 }
 .body .main .register-body .main-register .user-form__bottom {
   display: flex;
@@ -262,8 +262,11 @@ a:active {
 }
 .body .main .index-body .main__welcome-h1 {
   font-size: clamp(3rem, 4.7vw, 6.4rem);
-  font-weight: 900;
+  font-weight: 600;
   color: hsl(205, 50%, 33%);
+}
+.body .main .index-body .main__welcome-h1__dark {
+  color: hsl(173, 58%, 39%);
 }
 .body .main .index-body .main__welcome-p {
   font-size: clamp(1.125rem, 1.75vw, 2.4rem);
@@ -315,7 +318,7 @@ a:active {
 .body .main .index-body .main__section-h3 {
   font-size: clamp(1.5rem, 2.35vw, 3.2rem);
   font-weight: 600;
-  color: hsl(181, 49%, 43%);
+  color: hsl(12, 76%, 61%);
 }
 .body .main .index-body .main__section-p {
   font-size: clamp(1rem, 1.175vw, 1.6rem);
@@ -334,6 +337,9 @@ a:active {
   font-size: clamp(2.25rem, 3.53vw, 4.8rem);
   font-weight: 600;
   color: hsl(205, 50%, 33%);
+}
+.body .main .index-body .agenda__intro-h2__dark {
+  color: hsl(173, 58%, 39%);
 }
 .body .main .index-body .agenda__intro-p {
   font-size: clamp(1.2rem, 1.47vw, 2rem);
@@ -404,6 +410,552 @@ a:active {
 .body .main .index-body .container-tasks .card:nth-child(10) .card__category {
   color: hsl(285, 50%, 50%);
 }
+.body .main .index-body .container-tasks .card:nth-child(11) .card__color {
+  background-color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(11) .card__category {
+  color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(12) .card__color {
+  background-color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(12) .card__category {
+  color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(13) .card__color {
+  background-color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(13) .card__category {
+  color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(14) .card__color {
+  background-color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(14) .card__category {
+  color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(15) .card__color {
+  background-color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(15) .card__category {
+  color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(16) .card__color {
+  background-color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(16) .card__category {
+  color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(17) .card__color {
+  background-color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(17) .card__category {
+  color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(18) .card__color {
+  background-color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(18) .card__category {
+  color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(19) .card__color {
+  background-color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(19) .card__category {
+  color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(20) .card__color {
+  background-color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(20) .card__category {
+  color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(21) .card__color {
+  background-color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(21) .card__category {
+  color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(22) .card__color {
+  background-color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(22) .card__category {
+  color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(23) .card__color {
+  background-color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(23) .card__category {
+  color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(24) .card__color {
+  background-color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(24) .card__category {
+  color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(25) .card__color {
+  background-color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(25) .card__category {
+  color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(26) .card__color {
+  background-color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(26) .card__category {
+  color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(27) .card__color {
+  background-color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(27) .card__category {
+  color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(28) .card__color {
+  background-color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(28) .card__category {
+  color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(29) .card__color {
+  background-color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(29) .card__category {
+  color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(30) .card__color {
+  background-color: hsl(225, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(30) .card__category {
+  color: hsl(225, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(31) .card__color {
+  background-color: hsl(240, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(31) .card__category {
+  color: hsl(240, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(32) .card__color {
+  background-color: hsl(255, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(32) .card__category {
+  color: hsl(255, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(33) .card__color {
+  background-color: hsl(270, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(33) .card__category {
+  color: hsl(270, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(34) .card__color {
+  background-color: hsl(285, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(34) .card__category {
+  color: hsl(285, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(35) .card__color {
+  background-color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(35) .card__category {
+  color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(36) .card__color {
+  background-color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(36) .card__category {
+  color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(37) .card__color {
+  background-color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(37) .card__category {
+  color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(38) .card__color {
+  background-color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(38) .card__category {
+  color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(39) .card__color {
+  background-color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(39) .card__category {
+  color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(40) .card__color {
+  background-color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(40) .card__category {
+  color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(41) .card__color {
+  background-color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(41) .card__category {
+  color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(42) .card__color {
+  background-color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(42) .card__category {
+  color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(43) .card__color {
+  background-color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(43) .card__category {
+  color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(44) .card__color {
+  background-color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(44) .card__category {
+  color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(45) .card__color {
+  background-color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(45) .card__category {
+  color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(46) .card__color {
+  background-color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(46) .card__category {
+  color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(47) .card__color {
+  background-color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(47) .card__category {
+  color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(48) .card__color {
+  background-color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(48) .card__category {
+  color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(49) .card__color {
+  background-color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(49) .card__category {
+  color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(50) .card__color {
+  background-color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(50) .card__category {
+  color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(51) .card__color {
+  background-color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(51) .card__category {
+  color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(52) .card__color {
+  background-color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(52) .card__category {
+  color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(53) .card__color {
+  background-color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(53) .card__category {
+  color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(54) .card__color {
+  background-color: hsl(225, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(54) .card__category {
+  color: hsl(225, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(55) .card__color {
+  background-color: hsl(240, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(55) .card__category {
+  color: hsl(240, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(56) .card__color {
+  background-color: hsl(255, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(56) .card__category {
+  color: hsl(255, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(57) .card__color {
+  background-color: hsl(270, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(57) .card__category {
+  color: hsl(270, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(58) .card__color {
+  background-color: hsl(285, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(58) .card__category {
+  color: hsl(285, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(59) .card__color {
+  background-color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(59) .card__category {
+  color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(60) .card__color {
+  background-color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(60) .card__category {
+  color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(61) .card__color {
+  background-color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(61) .card__category {
+  color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(62) .card__color {
+  background-color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(62) .card__category {
+  color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(63) .card__color {
+  background-color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(63) .card__category {
+  color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(64) .card__color {
+  background-color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(64) .card__category {
+  color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(65) .card__color {
+  background-color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(65) .card__category {
+  color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(66) .card__color {
+  background-color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(66) .card__category {
+  color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(67) .card__color {
+  background-color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(67) .card__category {
+  color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(68) .card__color {
+  background-color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(68) .card__category {
+  color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(69) .card__color {
+  background-color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(69) .card__category {
+  color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(70) .card__color {
+  background-color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(70) .card__category {
+  color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(71) .card__color {
+  background-color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(71) .card__category {
+  color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(72) .card__color {
+  background-color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(72) .card__category {
+  color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(73) .card__color {
+  background-color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(73) .card__category {
+  color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(74) .card__color {
+  background-color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(74) .card__category {
+  color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(75) .card__color {
+  background-color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(75) .card__category {
+  color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(76) .card__color {
+  background-color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(76) .card__category {
+  color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(77) .card__color {
+  background-color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(77) .card__category {
+  color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(78) .card__color {
+  background-color: hsl(225, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(78) .card__category {
+  color: hsl(225, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(79) .card__color {
+  background-color: hsl(240, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(79) .card__category {
+  color: hsl(240, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(80) .card__color {
+  background-color: hsl(255, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(80) .card__category {
+  color: hsl(255, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(81) .card__color {
+  background-color: hsl(270, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(81) .card__category {
+  color: hsl(270, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(82) .card__color {
+  background-color: hsl(285, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(82) .card__category {
+  color: hsl(285, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(83) .card__color {
+  background-color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(83) .card__category {
+  color: hsl(300, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(84) .card__color {
+  background-color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(84) .card__category {
+  color: hsl(315, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(85) .card__color {
+  background-color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(85) .card__category {
+  color: hsl(330, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(86) .card__color {
+  background-color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(86) .card__category {
+  color: hsl(345, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(87) .card__color {
+  background-color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(87) .card__category {
+  color: hsl(0, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(88) .card__color {
+  background-color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(88) .card__category {
+  color: hsl(15, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(89) .card__color {
+  background-color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(89) .card__category {
+  color: hsl(30, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(90) .card__color {
+  background-color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(90) .card__category {
+  color: hsl(45, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(91) .card__color {
+  background-color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(91) .card__category {
+  color: hsl(60, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(92) .card__color {
+  background-color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(92) .card__category {
+  color: hsl(75, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(93) .card__color {
+  background-color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(93) .card__category {
+  color: hsl(90, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(94) .card__color {
+  background-color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(94) .card__category {
+  color: hsl(105, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(95) .card__color {
+  background-color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(95) .card__category {
+  color: hsl(120, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(96) .card__color {
+  background-color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(96) .card__category {
+  color: hsl(135, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(97) .card__color {
+  background-color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(97) .card__category {
+  color: hsl(150, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(98) .card__color {
+  background-color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(98) .card__category {
+  color: hsl(165, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(99) .card__color {
+  background-color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(99) .card__category {
+  color: hsl(180, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(100) .card__color {
+  background-color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(100) .card__category {
+  color: hsl(195, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(101) .card__color {
+  background-color: hsl(210, 50%, 50%);
+}
+.body .main .index-body .container-tasks .card:nth-child(101) .card__category {
+  color: hsl(210, 50%, 50%);
+}
 .body .main .index-body .card {
   position: relative;
   display: flex;
@@ -414,6 +966,7 @@ a:active {
   background-color: hsl(0, 100%, 100%);
   box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
   overflow: hidden;
+  color: hsl(0, 0%, 0%);
 }
 .body .main .index-body .card__color {
   height: 1;
@@ -514,16 +1067,22 @@ a:active {
   z-index: 900;
   border: none;
   border-radius: 8px;
-  background-color: hsl(0, 100%, 100%);
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
   padding: 1.5rem;
+  background-color: hsl(0, 100%, 100%);
+}
+.body .main .main__form-section .main__form-div__dark {
+  background-color: hsl(201, 20%, 23%);
 }
 .body .main .main__form-section .form-div__title {
   font-size: 3rem;
   font-weight: 600;
   color: hsl(205, 50%, 33%);
+}
+.body .main .main__form-section .form-div__title__dark {
+  color: hsl(173, 58%, 39%);
 }
 .body .main .main__form-section .task-form {
   height: 100%;
@@ -547,7 +1106,7 @@ a:active {
   font-size: 1.4rem;
   border: 1px solid rgb(199, 199, 199);
   border-radius: 8px;
-  border-bottom: 2px solid hsl(181, 49%, 43%);
+  border-bottom: 2px solid hsl(12, 76%, 61%);
 }
 .body .main .main__form-section .task-form .task-form__div input:focus,
 .body .main .main__form-section .task-form .task-form__div textarea:focus {
@@ -662,11 +1221,31 @@ a:active {
 .body .main .d-none {
   display: none;
 }
+.body #btnSwitchTheme {
+  position: absolute;
+  top: 2dvh;
+  right: 2vw;
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  width: 5vw;
+  aspect-ratio: 1;
+  background-color: transparent;
+  cursor: pointer;
+}
+.body #btnSwitchTheme .btnTheme-img {
+  max-width: 100%;
+}
 .body .footer {
   height: 18dvh;
 }
 .body .d-none {
   display: none;
+}
+
+.body__dark {
+  background-color: hsl(201, 20%, 23%);
+  color: hsl(0, 0%, 100%);
 }
 
 @media (max-width: 475px) {

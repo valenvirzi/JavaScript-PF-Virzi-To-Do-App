@@ -122,8 +122,12 @@
 
             .main__welcome-h1 {
                 font-size: clamp(3rem, 4.7vw, 6.4rem);
-                font-weight: 900;
+                font-weight: 600;
                 color: $title-primary-clr;
+            }
+
+            .main__welcome-h1__dark {
+                color: $title-dark-clr;
             }
 
             .main__welcome-p {
@@ -209,6 +213,10 @@
                 color: $title-primary-clr;
             }
 
+            .agenda__intro-h2__dark {
+                color: $title-dark-clr;
+            }
+
             .agenda__intro-p {
                 font-size: clamp(1.2rem, 1.47vw, 2rem);
                 font-weight: 600;
@@ -220,7 +228,7 @@
                 gap: 1rem;
 
                 .card {
-                    @for $i from 0 through 9 {
+                    @for $i from 0 through 100 {
                         $hsl-starting-deg: 150deg;
                         $hsl-variation: 15;
 
@@ -249,6 +257,23 @@
         }
     }
 
+    #btnSwitchTheme {
+        position: absolute;
+        top: 2dvh;
+        right: 2vw;
+        z-index: 1;
+        border: none;
+        border-radius: 50%;
+        width: 5vw;
+        aspect-ratio: 1;
+        background-color: transparent;
+        cursor: pointer;
+
+        .btnTheme-img {
+            max-width: 100%;
+        }
+    }
+
     .footer {
         height: 18dvh;
     }
@@ -256,4 +281,8 @@
     .d-none {
         display: none;
     }
+}
+.body__dark {
+    background-color: $bg-dark-clr;
+    color: hsl(0deg, 0, 100);
 }
