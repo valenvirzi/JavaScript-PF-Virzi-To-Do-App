@@ -101,137 +101,146 @@
         row-gap: 2rem;
         padding: 0rem clamp(1rem, 3vw, 5rem);
 
-        .main__welcome {
-            display: flex;
-            justify-content: space-between;
-        }
+        @import "registerBody";
 
-        .main__welcome-text-div {
-            display: flex;
-            flex-direction: column;
-            row-gap: 0.5rem;
-        }
-
-        .main__welcome-h1 {
-            font-size: clamp(3rem, 4.7vw, 6.4rem);
-            font-weight: 900;
-            color: $title-primary-clr;
-        }
-
-        .main__welcome-p {
-            font-size: clamp(1.125rem, 1.75vw, 2.4rem);
-            font-weight: 600;
-        }
-
-        .main__welcome-btn-div {
-            position: absolute;
-            top: 2rem;
-            right: clamp(1rem, 3vw, 5rem);
-            display: flex;
-            align-items: center;
-            column-gap: 1rem;
-            height: fit-content;
-        }
-
-        .main__welcome-div-p {
-            font-weight: 600;
-        }
-
-        .main__welcome-btn {
-            height: 2.5rem;
-            aspect-ratio: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0.5rem;
-            border: none;
-            border-radius: 50%;
-            background-color: $btn-primary-clr;
-            cursor: pointer;
-            overflow: hidden;
-
-            .main__welcome-btn-svg {
-                width: 100%;
-                aspect-ratio: 1;
-            }
-        }
-
-        .main__welcome-btn:hover {
-            background-color: $btn-hover-clr;
-        }
-
-        .main__div-row {
-            display: flex;
-            justify-content: space-around;
-            column-gap: 4rem;
-        }
-
-        .main__section {
-            display: flex;
-            flex-direction: column;
-            row-gap: 0.5rem;
-            width: 100%;
-        }
-
-        .main__section-h3 {
-            font-size: clamp(1.5rem, 2.35vw, 3.2rem);
-            font-weight: 600;
-            color: $subtitle-primary-clr;
-        }
-
-        .main__section-p {
-            font-size: clamp(1rem, 1.175vw, 1.6rem);
-        }
-
-        .main__agenda {
+        .index-body {
+            position: relative;
             display: flex;
             flex-direction: column;
             row-gap: 2rem;
-        }
 
-        .main__agenda-intro {
-            display: flex;
-            flex-direction: column;
-            row-gap: 0.5rem;
-        }
+            .main__welcome {
+                display: flex;
+                justify-content: space-between;
+            }
 
-        .agenda__intro-h2 {
-            font-size: clamp(2.25rem, 3.53vw, 4.8rem);
-            font-weight: 600;
-            color: $title-primary-clr;
-        }
+            .main__welcome-text-div {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+            }
 
-        .agenda__intro-p {
-            font-size: clamp(1.2rem, 1.47vw, 2rem);
-            font-weight: 600;
-        }
+            .main__welcome-h1 {
+                font-size: clamp(3rem, 4.7vw, 6.4rem);
+                font-weight: 900;
+                color: $title-primary-clr;
+            }
 
-        .container-tasks {
-            display: grid;
-            padding: 1rem;
-            gap: 1rem;
+            .main__welcome-p {
+                font-size: clamp(1.125rem, 1.75vw, 2.4rem);
+                font-weight: 600;
+            }
 
-            .card {
-                @for $i from 0 through 9 {
-                    $hsl-starting-deg: 150deg;
-                    $hsl-variation: 15;
+            .main__welcome-btn-div {
+                position: absolute;
+                top: 2rem;
+                right: clamp(1rem, 3vw, 5rem);
+                display: flex;
+                align-items: center;
+                column-gap: 1rem;
+                height: fit-content;
+            }
 
-                    &:nth-child(#{$i + 1}) {
+            .main__welcome-div-p {
+                font-weight: 600;
+            }
 
-                        .card__color {
-                            background-color: hsl($hsl-starting-deg + $i * $hsl-variation, 50%, 50%);
+            .main__welcome-btn {
+                height: 2.5rem;
+                aspect-ratio: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0.5rem;
+                border: none;
+                border-radius: 50%;
+                background-color: $btn-primary-clr;
+                cursor: pointer;
+                overflow: hidden;
+
+                .main__welcome-btn-svg {
+                    width: 100%;
+                    aspect-ratio: 1;
+                }
+            }
+
+            .main__welcome-btn:hover {
+                background-color: $btn-hover-clr;
+            }
+
+            .main__div-row {
+                display: flex;
+                justify-content: space-around;
+                column-gap: 4rem;
+            }
+
+            .main__section {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+                width: 100%;
+            }
+
+            .main__section-h3 {
+                font-size: clamp(1.5rem, 2.35vw, 3.2rem);
+                font-weight: 600;
+                color: $subtitle-primary-clr;
+            }
+
+            .main__section-p {
+                font-size: clamp(1rem, 1.175vw, 1.6rem);
+            }
+
+            .main__agenda {
+                display: flex;
+                flex-direction: column;
+                row-gap: 2rem;
+            }
+
+            .main__agenda-intro {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.5rem;
+            }
+
+            .agenda__intro-h2 {
+                font-size: clamp(2.25rem, 3.53vw, 4.8rem);
+                font-weight: 600;
+                color: $title-primary-clr;
+            }
+
+            .agenda__intro-p {
+                font-size: clamp(1.2rem, 1.47vw, 2rem);
+                font-weight: 600;
+            }
+
+            .container-tasks {
+                display: grid;
+                padding: 1rem;
+                gap: 1rem;
+
+                .card {
+                    @for $i from 0 through 9 {
+                        $hsl-starting-deg: 150deg;
+                        $hsl-variation: 15;
+
+                        &:nth-child(#{$i + 1}) {
+
+                            .card__color {
+                                background-color: hsl($hsl-starting-deg + $i * $hsl-variation, 50%, 50%);
+                            }
+
+                            .card__category {
+                                color: hsl($hsl-starting-deg + $i * $hsl-variation, 50%, 50%);
+                            }
+
                         }
-
-                        .card__category {
-                            color: hsl($hsl-starting-deg + $i * $hsl-variation, 50%, 50%);
-                        }
-
                     }
                 }
             }
-        }
 
-        @import "card";
+            @import "card";
+        }
 
         @import "formSection";
 

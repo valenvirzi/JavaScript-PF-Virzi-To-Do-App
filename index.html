@@ -28,7 +28,7 @@
 </head>
 
 <body class="body">
-    <header class="header">
+    <header class="header d-none">
         <nav class="header__nav">
             <ul class="header__nav-ul">
                 <li class="header__nav-item">
@@ -67,94 +67,146 @@
     </header>
 
     <main class="main">
-        <div id="inicio"></div>
-        <section class="main__welcome">
-            <div class="main__welcome-text-div">
-                <h1 class="main__welcome-h1">¡Hola, <span id="spanUserName">usuario</span>!</h1>
-                <p class="main__welcome-p">Anota y consulta aquí tus tareas diarias.</p>
-            </div>
-        </section>
-        <section class="main__div-row">
-            <section class="main__section">
-                <h3 class="main__section-h3">Pendientes hoy</h3>
-                <ul class="container-tasks" id="todayTaskContainer">
-                    <p class="main__section-p">No tienes tareas pendientes para hoy.</p>
-                </ul>
-            </section>
-
-            <section class="main__section">
-                <h3 class="main__section-h3">Tareas importantes</h3>
-                <ul class="container-tasks" id="importantTaskContainer">
-                    <p class="main__section-p">No tienes tareas en esta categoría.</p>
-                </ul>
-            </section>
-        </section>
-        <section class="main__agenda" id="agenda">
-            <div class="main__agenda-intro">
-                <h2 class="agenda__intro-h2">Agenda</h2>
-                <p class="agenda__intro-p">Encuentra aquí todas tus tareas.</p>
-            </div>
-            <div class="main__div-row">
-                <section class="main__section">
-                    <h4 class="main__section-h3">Pendientes</h4>
-                    <ul class="container-tasks" id="pendingTaskContainer">
-                        <p class="main__section-p">No tienes tareas pendientes.</p>
-                    </ul>
-                </section>
-                <section class="main__section">
-                    <h4 class="main__section-h3">Completadas</h4>
-                    <ul class="container-tasks" id="completedTaskContainer">
-                        <p class="main__section-p">No tienes tareas completadas.</p>
-                    </ul>
-                </section>
-            </div>
-        </section>
-        <section id="taskFormDisplay" class="main__form-section d-none">
-            <div class="main__form-div">
-                <h2 class="form-div__title">Ingrese su tarea</h2>
-                <form id="taskForm" class="task-form">
-                    <div class="task-form__div">
-                        <label for="taskName">Nombre:</label>
-                        <input form="taskForm" class="task-form__input" id="taskName" type="text"
-                            placeholder="Ordenar habitación, Sacar turno con dentista, Pagar alquiler, Lavar auto, etc..."
-                            required>
+        <section class="register-body">
+            <div class="main-register">
+                <h1 class="register-main__h1">Ingresa los datos para continuar</h1>
+                <p>(Todos los campos son requeridos, incluso los Términos y Condiciones)</p>
+                <form id="userForm" class="user-form">
+                    <div class="user-form__div">
+                        <label for="userName">Nombre:</label>
+                        <input form="userForm" class="user-form__input" id="userName" type="text"
+                            placeholder="Ej: Manuel" required>
                     </div>
-                    <div class="task-form__div">
-                        <label for="taskCategory">Categoría:</label>
-                        <input form="taskForm" class="task-form__input" id="taskCategory" type="text"
-                            placeholder="Estudio, Trabajo, Hogar, Salud, Otros, etc..." required>
+                    <div class="user-form__div">
+                        <label for="userLastName">Apellido:</label>
+                        <input form="userForm" class="user-form__input" id="userLastName" type="text"
+                            placeholder="Ej: Ginóbili" required>
                     </div>
-                    <div class="task-form__div">
-                        <label for="taskFinishTime">Fecha límite:</label>
-                        <input form="taskForm" class="task-form__input" id="taskFinishTime" type="datetime-local"
-                            required>
+                    <div class="user-form__div">
+                        <label for="userEmail">E-mail:</label>
+                        <input form="userForm" class="user-form__input" id="userEmail" type="email"
+                            placeholder="Ej: manu_spurs@gmail.com" required>
                     </div>
-                    <div class="task-form__div">
-                        <label for="taskDescription">Descripción:</label>
-                        <textarea form="taskForm" class="task-form__input" id="taskDescription"></textarea>
+                    <div class="user-form__div">
+                        <label for="userCountry">País:</label>
+                        <input type="text" form="userForm" class="user-form__input" id="userCountry"
+                            placeholder="Ej: Argentina" required>
                     </div>
-                    <div class="task-form__bottom">
-                        <div class="task-form__bottom-div">
+                    <div class="user-form__bottom">
+                        <div class="user-form__bottom-div">
                             <div class="checkbox-wrapper-18">
                                 <div class="round">
-                                    <input type="checkbox" form="taskForm" id="importanceCheckbox" />
-                                    <label for="importanceCheckbox">
+                                    <input type="checkbox" form="userForm" id="termsCheckbox" required />
+                                    <label for="termsCheckbox">
                                     </label>
                                 </div>
                             </div>
-                            <label class="task-form__label" for="importanceCheckbox">
-                                Marcar tarea como <i>Importante</i>
+                            <label class="user-form__label" for="termsCheckbox">
+                                Acepto los <i>términos y condiciones</i>
                             </label>
                         </div>
-                        <button class="task-form__submit" id="btnSubmitTask" form="taskForm" type="submit">
-                            Confirmar
-                        </button>
+                        <div class="user-form__bottom-div">
+                            <button class="user-form__generate" id="btnGenerateUser" type="button">
+                                Generar Automáticamente
+                            </button>
+                            <button class="user-form__submit" id="btnSubmitUser" form="userForm" type="submit">
+                                Registrarse
+                            </button>
+                        </div>
                     </div>
                 </form>
-                <button class="form-div__close-btn" id="btnCloseForm" type="button">
-                    <img class="form-div__close-svg" src="img/close-x.svg" alt="close">
-                </button>
             </div>
+        </section>
+        <section class="index-body d-none">
+            <div id="inicio"></div>
+            <section class="main__welcome">
+                <div class="main__welcome-text-div">
+                    <h1 class="main__welcome-h1">¡Hola, <span id="spanUserName">usuario</span>!</h1>
+                    <p class="main__welcome-p">Anota y consulta aquí tus tareas diarias.</p>
+                </div>
+            </section>
+            <section class="main__div-row">
+                <section class="main__section">
+                    <h3 class="main__section-h3">Pendientes hoy</h3>
+                    <ul class="container-tasks" id="todayTaskContainer">
+                        <p class="main__section-p">No tienes tareas pendientes para hoy.</p>
+                    </ul>
+                </section>
+
+                <section class="main__section">
+                    <h3 class="main__section-h3">Tareas importantes</h3>
+                    <ul class="container-tasks" id="importantTaskContainer">
+                        <p class="main__section-p">No tienes tareas en esta categoría.</p>
+                    </ul>
+                </section>
+            </section>
+            <section class="main__agenda" id="agenda">
+                <div class="main__agenda-intro">
+                    <h2 class="agenda__intro-h2">Agenda</h2>
+                    <p class="agenda__intro-p">Encuentra aquí todas tus tareas.</p>
+                </div>
+                <div class="main__div-row">
+                    <section class="main__section">
+                        <h4 class="main__section-h3">Pendientes</h4>
+                        <ul class="container-tasks" id="pendingTaskContainer">
+                            <p class="main__section-p">No tienes tareas pendientes.</p>
+                        </ul>
+                    </section>
+                    <section class="main__section">
+                        <h4 class="main__section-h3">Completadas</h4>
+                        <ul class="container-tasks" id="completedTaskContainer">
+                            <p class="main__section-p">No tienes tareas completadas.</p>
+                        </ul>
+                    </section>
+                </div>
+            </section>
+            <section id="taskFormDisplay" class="main__form-section d-none">
+                <div class="main__form-div">
+                    <h2 class="form-div__title">Ingrese su tarea</h2>
+                    <form id="taskForm" class="task-form">
+                        <div class="task-form__div">
+                            <label for="taskName">Nombre:</label>
+                            <input form="taskForm" class="task-form__input" id="taskName" type="text"
+                                placeholder="Ordenar habitación, Sacar turno con dentista, Pagar alquiler, Lavar auto, etc..."
+                                required>
+                        </div>
+                        <div class="task-form__div">
+                            <label for="taskCategory">Categoría:</label>
+                            <input form="taskForm" class="task-form__input" id="taskCategory" type="text"
+                                placeholder="Estudio, Trabajo, Hogar, Salud, Otros, etc..." required>
+                        </div>
+                        <div class="task-form__div">
+                            <label for="taskFinishTime">Fecha límite:</label>
+                            <input form="taskForm" class="task-form__input" id="taskFinishTime" type="datetime-local"
+                                required>
+                        </div>
+                        <div class="task-form__div">
+                            <label for="taskDescription">Descripción:</label>
+                            <textarea form="taskForm" class="task-form__input" id="taskDescription"></textarea>
+                        </div>
+                        <div class="task-form__bottom">
+                            <div class="task-form__bottom-div">
+                                <div class="checkbox-wrapper-18">
+                                    <div class="round">
+                                        <input type="checkbox" form="taskForm" id="importanceCheckbox" />
+                                        <label for="importanceCheckbox">
+                                        </label>
+                                    </div>
+                                </div>
+                                <label class="task-form__label" for="importanceCheckbox">
+                                    Marcar tarea como <i>Importante</i>
+                                </label>
+                            </div>
+                            <button class="task-form__submit" id="btnSubmitTask" form="taskForm" type="submit">
+                                Confirmar
+                            </button>
+                        </div>
+                    </form>
+                    <button class="form-div__close-btn" id="btnCloseForm" type="button">
+                        <img class="form-div__close-svg" src="img/close-x.svg" alt="close">
+                    </button>
+                </div>
+            </section>
         </section>
     </main>
 

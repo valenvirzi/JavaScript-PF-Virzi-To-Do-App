@@ -1,6 +1,19 @@
-import { userNameTextContent } from "./register.js";
 // TODO: Pasar todo a un mismo archivo js
 // Declaración de variables para identificar los elementos del documento
+const registerBody = document.querySelector(".register-body");
+const generateUserURL = "https://randomuser.me/api/?inc=name,location,email";
+const userForm = document.getElementById("userForm");
+const userName = document.getElementById("userName");
+const userLastName = document.getElementById("userLastName");
+const userEmail = document.getElementById("userEmail");
+const userCountry = document.getElementById("userCountry");
+const termsCheckbox = document.getElementById("termsCheckbox");
+const btnGenerateUser = document.getElementById("btnGenerateUser");
+const btnSubmitUser = document.getElementById("btnSubmitUser");
+let nameUser, lastNameUser, emailUser, countryUser, termsCheck;
+
+const header = document.querySelector(".header");
+const indexBody = document.querySelector(".index-body");
 const btnAddTask = document.getElementById("btnAddTask");
 const spanUserName = document.getElementById("spanUserName");
 const todayTaskContainer = document.getElementById("todayTaskContainer");
@@ -226,8 +239,29 @@ function updateArrays() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  //TODO:
-  spanUserName.textContent = userNameTextContent;
+  btnGenerateUser.addEventListener("pointerdown", async () => {
+    const response = await fetch(generateUserURL);
+    const data = await response.json();
+
+    userName.value = data.results[0].name.first;
+    userLastName.value = data.results[0].name.last;
+    userEmail.value = data.results[0].email;
+    userCountry.value = data.results[0].location.country;
+  });
+
+  userForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    nameUser = String(userName.value);
+    lastNameUser = userLastName.value;
+    emailUser = userEmail.value;
+    countryUser = userCountry.value;
+    termsCheck = termsCheckbox.checked;
+    spanUserName.textContent = nameUser;
+    registerBody.classList.toggle("d-none");
+    header.classList.toggle("d-none");
+    indexBody.classList.toggle("d-none");
+  });
   // Función para mostrar el formulario de la tarea a añadir
   btnAddTask.addEventListener("pointerdown", function showTaskForm(e) {
     taskFormDisplay.classList.remove("d-none");
