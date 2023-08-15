@@ -103,7 +103,6 @@ function deleteElementFromContainer(e) {
 }
 
 // Aplicación de la Librería Sweet Alert 2 para la confirmación de la eliminación de la Tarea del DOM y del Array principal
-
 function deleteWithAlert(e) {
   Swal.fire({
     title: "¿Seguro que que quieres eliminar la Tarea?",
@@ -123,7 +122,6 @@ function deleteWithAlert(e) {
 }
 
 // Función para encontrar y cambiar la propiedad "completed" del objeto encontrado, mostrándolo en la sección correspondiente
-
 function setElementToCompleted(e) {
   const btn = e.target;
   const taskId = btn.getAttribute("data-id");
@@ -268,8 +266,6 @@ function formatDatetime(finishTimeTaskDate) {
     .toString()
     .padStart(2, "0")}hs`;
 }
-
-//TODO: Usar librería de Alerts para notificar que la tarea fue eliminada
 
 /*
 Swal.fire({
