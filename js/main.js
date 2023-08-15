@@ -1,15 +1,16 @@
 /*
 El proyecto se trata de un mánager de tareas para el día a día,
 se me ocurrió la idea de instanciar los objetos "Tarea" en base a una clase creada para construirlos e ir almacenándolos en un Array principal en el que se guardarían todas las tareas.
-Cada objeto Tarea tiene ciertas propiedades que luego serviran para filtrarlas y así formar nuevos Arrays a partir de los cuales cargar el DOM:
+Cada objeto Tarea tiene ciertas propiedades que luego servirán para filtrarlas y así formar nuevos Arrays a partir de los cuales cargar el DOM:
 Arrays:
 - Pendientes (En general): Todas las tareas cuya propiedad "completed" sea igual a "false", el cual será el estado inicial de todas las tareas creadas.
-- Pendientes para hoy (Basado en "Pendientes"): Todas las tareas cuya tiempo de finalización coincida con la fecha actual, sin importar la hora.
+- Pendientes para hoy (Basado en "Pendientes"): Todas las tareas cuyo tiempo de finalización coincida con la fecha actual, sin importar la hora.
 - Importantes (Basado en "Pendientes"): Todas las tareas que hayan sido marcadas como importantes en su formulario de creación.
 - Completadas: Todas las tareas que hayan sido marcadas como completadas luego de su creación.
 [Todos los arrays son creados con el método Filter en base a algún otro array]
 
 A continuación dejaré comentarios solo para mencionar el accionar de cada función o la identificación de algún otro detalle relevante.
+(El documento tiene aplicado el Formato de Documento de la extensión de VSCode "Prettier", para un formato más estándar.)
 */
 
 // Declaración de variables para identificar los elementos del documento
