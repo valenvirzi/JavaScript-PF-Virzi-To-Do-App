@@ -1049,6 +1049,9 @@ a:active {
 .body .main .index-body .complete:active .card__btn-svg {
   opacity: 1;
 }
+.body .main .index-body .completed .card .card__body .complete {
+  display: none;
+}
 .body .main .main__form-section {
   position: fixed;
   top: 0;

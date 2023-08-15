@@ -248,6 +248,16 @@
             }
 
             @import "card";
+
+            .completed {
+                .card {
+                    .card__body {
+                        .complete {
+                            display: none;
+                        }
+                    }
+                }
+            }
         }
 
         @import "formSection";
