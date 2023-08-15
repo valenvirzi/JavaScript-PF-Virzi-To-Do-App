@@ -267,23 +267,6 @@ function formatDatetime(finishTimeTaskDate) {
     .padStart(2, "0")}hs`;
 }
 
-/*
-Swal.fire({
-  title: "¿Seguro que que quieres eliminar la Tarea?",
-  text: "¡No podrás revertirlo!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#57cc99",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Sí, deseo eliminarla",
-  cancelButtonText: "Cancelar",
-}).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire("Tarea Elminada", "La tarea ha sido eliminada.", "success");
-  }
-});
-*/
-
 // Función para actualizar los datos contenidos por los Arrays, en base al Array Principal
 function updateArrays() {
   pendingTasksArray = allTasksArray.filter((task) => task.completed == false);
