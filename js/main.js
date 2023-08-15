@@ -89,7 +89,6 @@ class Task {
   }
 }
 // Función para encontrar y borrar el objeto del array, eliminándolo del DOM
-
 function deleteElementFromContainer(e) {
   const btn = e.target;
   const taskId = btn.getAttribute("data-id");
@@ -102,6 +101,27 @@ function deleteElementFromContainer(e) {
   updateContainers();
   e.stopPropagation();
 }
+
+// Aplicación de la Librería Sweet Alert 2 para la confirmación de la eliminación de la Tarea del DOM y del Array principal
+
+function deleteWithAlert(e) {
+  Swal.fire({
+    title: "¿Seguro que que quieres eliminar la Tarea?",
+    text: "¡No podrás revertirlo!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#57cc99",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sí, deseo eliminarla",
+    cancelButtonText: "Cancelar",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      deleteElementFromContainer(e);
+      Swal.fire("Tarea Elminada", "La tarea ha sido eliminada.", "success");
+    }
+  });
+}
+
 // Función para encontrar y cambiar la propiedad "completed" del objeto encontrado, mostrándolo en la sección correspondiente
 
 function setElementToCompleted(e) {
@@ -134,7 +154,7 @@ function appendTasksToContainer(array, taskContainer) {
     const completeButtons = document.querySelectorAll(".complete");
 
     deleteButtons.forEach((btn) =>
-      btn.addEventListener("pointerdown", deleteElementFromContainer)
+      btn.addEventListener("pointerdown", deleteWithAlert)
     );
 
     completeButtons.forEach((btn) =>
